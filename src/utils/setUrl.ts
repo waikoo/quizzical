@@ -1,7 +1,11 @@
-export type UrlKey = 'amount' | 'category' | 'difficulty' | 'type';
-export type UrlValue = number | 'easy' | 'medium' | 'hard' | 'oolean' | 'multiple';
+import { get, type Writable } from "svelte/store";
 
-export const setUrl = (url: string, name: UrlKey, value: UrlValue) => {
+export type UrlKey = 'amount' | 'category' | 'difficulty' | 'type';
+export type UrlValue = number | 'easy' | 'medium' | 'hard' | 'oolean' | 'multiple' | 'any';
+
+export const setUrl = (urlStore: Writable<string>, name: UrlKey, value: UrlValue) => {
+  let url = get(urlStore)
+
   if (name) {
     if (url.includes(name)) {
       const regex = new RegExp(
@@ -15,5 +19,5 @@ export const setUrl = (url: string, name: UrlKey, value: UrlValue) => {
           : `${url}&${name}=${value}`;
     }
   }
-  return url
+  urlStore.set(url)
 }
