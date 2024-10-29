@@ -1,15 +1,22 @@
 <script lang="ts">
   import type { TriviaQuestion } from "../type";
+  import SingleQuestion from "./SingleQuestion.svelte";
 
   const { gameQuestions }: { gameQuestions: TriviaQuestion[] } = $props();
+
+  let questionCount = $state(1);
+  let timer = $state(5);
+
+  const interval = setInterval(() => {
+    if (timer === 0) {
+      questionCount++;
+      timer = 5;
+      return;
+    }
+    timer--;
+  }, 1000);
 </script>
 
-<div>
-  {#each gameQuestions as question}
-    <p>{question.question}</p>
-    <span class="border-[1px] border-black p-2">{question.correct_answer}</span>
-    {#each question.incorrect_answers as incorrect_answer}
-      <span class="border-[1px] border-black p-2">{incorrect_answer}</span>
-    {/each}
-  {/each}
-</div>
+<article>
+  <SingleQuestion question={gameQuestions[questionCount - 1]} {timer} />
+</article>

@@ -41,6 +41,7 @@
 </script>
 
 <main class="">
+  <a href="/" class="text-center">Quizzical</a>
   {#if $gameState === "settings"}
     <Settings {url} />
   {:else if $gameState === "playing"}
