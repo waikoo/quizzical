@@ -6,6 +6,7 @@
   import QuestionSettings from "./QuestionSettings.svelte";
   import DifficultySettings from "./DifficultySettings.svelte";
   import TypeSettings from "./TypeSettings.svelte";
+  import { gameState } from "../stores";
 
   let { url }: { url: Writable<string> } = $props();
 
@@ -18,6 +19,10 @@
       ? removeFromUrl(url, name, value)
       : setUrl(url, name, value);
   };
+
+  function startGame() {
+    $gameState = "playing";
+  }
 </script>
 
 <h1 class="">Welcome to Quizzical!</h1>
@@ -26,3 +31,7 @@
 <CategorySettings {addSetting} />
 <DifficultySettings {addSetting} />
 <TypeSettings {addSetting} />
+
+<button class="block border-[1px] border-black p-2" onclick={startGame}
+  >Start Game</button
+>

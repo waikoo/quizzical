@@ -1,11 +1,18 @@
 <script lang="ts">
+  import End from "./components/End.svelte";
+  import Game from "./components/Game.svelte";
   import Settings from "./components/Settings.svelte";
-  import { url } from "./stores";
+  import { url, gameState } from "./stores";
 </script>
 
 <main class="">
-  <Settings {url} />
-  <span>{$url}</span>
+  {#if $gameState === "settings"}
+    <Settings {url} />
+  {:else if $gameState === "playing"}
+    <Game />
+  {:else}
+    <End />
+  {/if}
 </main>
 
 <style>
