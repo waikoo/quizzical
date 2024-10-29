@@ -37,10 +37,21 @@
       })();
     }
   });
+
+  const setTheme = (e: MouseEvent) => {
+    const target = e.target as HTMLButtonElement;
+    document.documentElement.dataset.theme = target.dataset.theme;
+  };
 </script>
 
 <main class="">
-  <a href="/" class="text-center">Quizzical</a>
+  <div class="flex justify-between p-2">
+    <a href="/" class="text-center">Quizzical</a>
+    <div>
+      <button data-theme="light" onclick={setTheme}>Light</button>
+      <button data-theme="dark" onclick={setTheme}>Dark</button>
+    </div>
+  </div>
   {#if $gameState === "settings"}
     <Settings {url} {gameSpeed} />
   {:else if $gameState === "playing"}

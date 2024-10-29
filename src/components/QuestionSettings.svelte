@@ -8,7 +8,7 @@
 
 {#each questions as question}
   <button
-    class="p-2 border-[1px] border-black"
+    class="p-2 border-[1px] border-gray-300"
     data-name="amount"
     data-amount={question}
     onclick={addSetting}>{question}</button

@@ -44,7 +44,7 @@
 <div>{$url}</div>
 <div>{$gameSpeed}</div>
 
-<button class="block border-[1px] border-black p-2" onclick={startGame}
+<button class="block border-[1px] border-gray-300 p-2" onclick={startGame}
   >Start Game</button
 >
 
