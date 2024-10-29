@@ -9,3 +9,5 @@ export const gameState = writable<GameState>("settings");
 
 export type GameSpeed = "slow" | "medium" | "fast"
 export const gameSpeed = writable<GameSpeed>("slow")
+
+export const gamePoints = writable<number>(0)
