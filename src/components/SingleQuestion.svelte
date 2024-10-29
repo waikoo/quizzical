@@ -1,4 +1,5 @@
 <script lang="ts">
+  import decodeHtmlEntities from "../utils/decodeHtmlEntities";
   import type { TriviaQuestion } from "../type";
 
   let { question, timer }: { question: TriviaQuestion; timer: number } =
@@ -6,7 +7,7 @@
 </script>
 
 <div class="flex">
-  <p class="">{question.question}</p>
+  <p class="">{decodeHtmlEntities(question.question)}</p>
   <span class="ml-10">{timer}</span>
 </div>
 <div class="mt-2">

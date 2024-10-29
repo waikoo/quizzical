@@ -1,16 +1,25 @@
 <script lang="ts">
+  import type { Writable } from "svelte/store";
   import type { TriviaQuestion } from "../type";
   import SingleQuestion from "./SingleQuestion.svelte";
+  import type { GameSpeed } from "../stores";
 
-  const { gameQuestions }: { gameQuestions: TriviaQuestion[] } = $props();
+  const {
+    gameQuestions,
+    gameSpeed,
+  }: { gameQuestions: TriviaQuestion[]; gameSpeed: Writable<GameSpeed> } =
+    $props();
 
   let questionCount = $state(1);
-  let timer = $state(5);
 
-  const interval = setInterval(() => {
+  const questionTimer =
+    $gameSpeed === "slow" ? 60 : $gameSpeed === "medium" ? 30 : 10;
+  let timer = $state(questionTimer);
+
+  setInterval(() => {
     if (timer === 0) {
       questionCount++;
-      timer = 5;
+      timer = questionTimer;
       return;
     }
     timer--;

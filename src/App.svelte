@@ -2,10 +2,9 @@
   import End from "./components/End.svelte";
   import Game from "./components/Game.svelte";
   import Settings from "./components/Settings.svelte";
-  import { url, gameState } from "./stores";
+  import { url, gameState, baseUrl, gameSpeed } from "./stores";
   import type { TriviaQuestion } from "./type";
 
-  const baseUrl = "https://opentdb.com/api.php?";
   let gameQuestions = $state<TriviaQuestion[]>([]);
   let isFetchingError = $state<boolean>(false);
 
@@ -43,9 +42,9 @@
 <main class="">
   <a href="/" class="text-center">Quizzical</a>
   {#if $gameState === "settings"}
-    <Settings {url} />
+    <Settings {url} {gameSpeed} />
   {:else if $gameState === "playing"}
-    <Game {gameQuestions} />
+    <Game {gameQuestions} {gameSpeed} />
   {:else if $gameState === "end"}
     <End />
   {:else}
