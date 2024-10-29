@@ -1,7 +1,6 @@
 <script lang="ts">
-  import type { Writable } from "svelte/store";
-  import { type UrlKey, type UrlValue, setUrl } from "../utils/setUrl";
-  import { removeFromUrl } from "../utils/removeFromUrl";
+  import { get, type Writable } from "svelte/store";
+  import { type UrlKey, type UrlValue } from "../utils/setUrl";
   import CategorySettings from "./CategorySettings.svelte";
   import QuestionSettings from "./QuestionSettings.svelte";
   import DifficultySettings from "./DifficultySettings.svelte";
@@ -10,28 +9,38 @@
 
   let { url }: { url: Writable<string> } = $props();
 
-  const addSetting = (e: MouseEvent) => {
+  const buildUrl = (e: MouseEvent) => {
     const target = e.target as HTMLButtonElement;
     const name = target.dataset.name as UrlKey;
     const value = target.dataset[name as UrlValue] as UrlValue;
 
-    value === "any"
-      ? removeFromUrl(url, name, value)
-      : setUrl(url, name, value);
+    const urlValue = get(url);
+    const newUrl = new URL(urlValue);
+    if (value !== "any") {
+      newUrl.searchParams.set(name, value.toString());
+    } else {
+      newUrl.searchParams.delete(name);
+    }
+    url.set(newUrl.toString());
   };
 
   function startGame() {
-    $gameState = "playing";
+    $gameState = "fetching";
   }
 </script>
 
 <h1 class="">Welcome to Quizzical!</h1>
 
-<QuestionSettings {addSetting} />
-<CategorySettings {addSetting} />
-<DifficultySettings {addSetting} />
-<TypeSettings {addSetting} />
+<QuestionSettings addSetting={buildUrl} />
+<CategorySettings addSetting={buildUrl} />
+<DifficultySettings addSetting={buildUrl} />
+<TypeSettings addSetting={buildUrl} />
+<span>{$url}</span>
 
 <button class="block border-[1px] border-black p-2" onclick={startGame}
   >Start Game</button
 >
+
+{#if $gameState === "fetching"}
+  <span>Loading questions...</span>
+{/if}
