@@ -19,24 +19,42 @@
 
   let questionCount = $state(1);
   let hasAnswered = $state(false);
+  let showAnswer = $state(false);
 
   const setHasAnswered = (value: boolean) => (hasAnswered = value);
+  const setShowAnswer = (value: boolean) => (showAnswer = value);
   const questionTimer =
     $gameSpeed === "slow" ? 60 : $gameSpeed === "medium" ? 30 : 10;
   let timer = $state(questionTimer);
 
-  setInterval(() => {
-    if (questionCount === gameQuestions.length) {
-      $gameState = "end";
-    }
-    if (timer === 0 || hasAnswered) {
-      questionCount++;
-      timer = questionTimer;
-      setHasAnswered(false);
-      return;
-    }
-    timer--;
-  }, 1000);
+  const startCountdown = () => {
+    const intervalId = setInterval(() => {
+      const onAnswer = () => {
+        questionCount++;
+        timer = questionTimer;
+        setHasAnswered(false);
+        setShowAnswer(false);
+        startCountdown();
+        return;
+      };
+
+      if (questionCount === gameQuestions.length) {
+        $gameState = "end";
+        clearInterval(intervalId);
+      }
+
+      if (hasAnswered) {
+        clearInterval(intervalId);
+        setTimeout(() => {
+          onAnswer();
+        }, 2000);
+      } else if (timer === 0) {
+        onAnswer();
+      }
+      timer--;
+    }, 1000);
+  };
+  startCountdown();
 </script>
 
 <SingleQuestion
@@ -44,5 +62,7 @@
   {timer}
   {gamePoints}
   {setHasAnswered}
+  {setShowAnswer}
+  {showAnswer}
   questionLength={gameQuestions.length}
 />
