@@ -9,17 +9,20 @@
     timer,
     gamePoints,
     questionLength,
+    setHasAnswered,
   }: {
     question: TriviaQuestionWithUuid;
     timer: number;
     gamePoints: Writable<number>;
     questionLength: number;
+    setHasAnswered: (value: boolean) => void;
   } = $props();
 
   const handleClick = (e: MouseEvent) => {
     const target = e.target as HTMLButtonElement;
     const uuid = target.dataset.uuid;
 
+    setHasAnswered(true);
     if (uuid === question.correct_answer.uuid) {
       console.log("correct");
       $gamePoints++;

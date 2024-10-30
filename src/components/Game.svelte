@@ -18,7 +18,9 @@
   } = $props();
 
   let questionCount = $state(1);
+  let hasAnswered = $state(false);
 
+  const setHasAnswered = (value: boolean) => (hasAnswered = value);
   const questionTimer =
     $gameSpeed === "slow" ? 60 : $gameSpeed === "medium" ? 30 : 10;
   let timer = $state(questionTimer);
@@ -27,9 +29,10 @@
     if (questionCount === gameQuestions.length) {
       $gameState = "end";
     }
-    if (timer === 0) {
+    if (timer === 0 || hasAnswered) {
       questionCount++;
       timer = questionTimer;
+      setHasAnswered(false);
       return;
     }
     timer--;
@@ -40,5 +43,6 @@
   question={gameQuestions[questionCount - 1]}
   {timer}
   {gamePoints}
+  {setHasAnswered}
   questionLength={gameQuestions.length}
 />
