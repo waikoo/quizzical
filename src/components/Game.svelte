@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Writable } from "svelte/store";
-
   import type { TriviaQuestionWithUuid } from "../type";
   import SingleQuestion from "./SingleQuestion.svelte";
   import type { GameSpeed, GameState } from "../stores";
@@ -23,37 +22,46 @@
 
   const setHasAnswered = (value: boolean) => (hasAnswered = value);
   const setShowAnswer = (value: boolean) => (showAnswer = value);
+
   const questionTimer =
     $gameSpeed === "slow" ? 60 : $gameSpeed === "medium" ? 30 : 10;
   let timer = $state(questionTimer);
 
   const startCountdown = () => {
     const intervalId = setInterval(() => {
-      const onAnswer = () => {
-        questionCount++;
-        timer = questionTimer;
-        setHasAnswered(false);
-        setShowAnswer(false);
-        startCountdown();
-        return;
-      };
-
-      if (questionCount === gameQuestions.length) {
-        $gameState = "end";
-        clearInterval(intervalId);
+      if (timer > 0) {
+        timer--;
       }
 
-      if (hasAnswered) {
+      if (timer === 0 || hasAnswered) {
         clearInterval(intervalId);
-        setTimeout(() => {
-          onAnswer();
-        }, 2000);
-      } else if (timer === 0) {
-        onAnswer();
+
+        if (hasAnswered) {
+          setTimeout(() => {
+            moveToNextQuestion();
+          }, 2000);
+        } else {
+          moveToNextQuestion();
+        }
       }
-      timer--;
     }, 1000);
+
+    return () => clearInterval(intervalId);
   };
+
+  const moveToNextQuestion = () => {
+    if (questionCount === gameQuestions.length) {
+      $gameState = "end";
+      return;
+    }
+
+    questionCount++;
+    timer = questionTimer;
+    setHasAnswered(false);
+    setShowAnswer(false);
+    startCountdown();
+  };
+
   startCountdown();
 </script>
 
