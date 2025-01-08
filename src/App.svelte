@@ -4,28 +4,32 @@
   import Settings from "./components/Settings.svelte";
   import { url, gameState, baseUrl, gameSpeed, gamePoints } from "./stores";
   import type { TriviaQuestionWithUuid } from "./type";
-  import fetchQuestions from "./utils/fetchQuestions";
-  import addUuids from "./utils/addUuids";
   import Greeting from "./components/Greeting.svelte";
   import "./app.css";
+  import addUuids from "./utils/addUuids";
+  import fetchQuestions from "./utils/fetchQuestions";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
   let isFetchingError = $state<boolean>(false);
 
   $effect(() => {
-    if ($url !== baseUrl && $gameState === "fetching") {
+    if ($gameState === "fetching") {
       (async () => {
-        gameQuestions = addUuids(await fetchQuestions($url));
-        if (gameQuestions.length === 0) isFetchingError = true;
-        if ((gameQuestions as TriviaQuestionWithUuid[]).length > 0) {
-          gameState.set("playing");
-        } else {
+        try {
+          gameQuestions = addUuids(await fetchQuestions($url));
+
+          if (gameQuestions.length === 0) {
+            isFetchingError = true;
+          } else {
+            $gameState = "playing";
+          }
+        } catch (error) {
+          console.error("Error fetching questions:", error);
           isFetchingError = true;
         }
       })();
     }
   });
-  $inspect(gameQuestions);
 </script>
 
 <main class="">

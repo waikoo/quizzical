@@ -40,7 +40,7 @@
 
 <article>
   <div class="flex">
-    <p class="">{decodeHtmlEntities(question.question)}</p>
+    <p class="text-white">{decodeHtmlEntities(question.question)}</p>
     <span class="ml-10">{$gamePoints}/{questionLength}</span>
     <span class="ml-10">{timer}</span>
   </div>

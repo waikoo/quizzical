@@ -1,8 +1,15 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import { gameState } from "../stores";
+
+  function startGame() {
+    $gameState = "fetching";
+  }
+</script>
 
 <div class="w-full h-full relative">
   <button
     class="text-[#AD2B00] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[80%] hover:bg-[#F55C28] hover:text-[#3F1001]"
+    onclick={startGame}
     >PLAY
   </button>
 </div>

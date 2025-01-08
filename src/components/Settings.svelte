@@ -49,5 +49,5 @@
 >
 
 {#if $gameState === "fetching"}
-  <span>Loading questions...</span>
+  <span class="text-red-300 relative z-2">Loading questions...</span>
 {/if}

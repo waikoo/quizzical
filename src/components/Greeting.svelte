@@ -1,6 +1,11 @@
 <script lang="ts">
   import ButtonPlay from "./ButtonPlay.svelte";
   import ButtonSettings from "./ButtonSettings.svelte";
+  import { url, gameState, baseUrl, gameSpeed, gamePoints } from "../stores";
+
+  // $inspect(gameQuestions);
+  // $inspect($gameState);
+  // $inspect(isFetchingError);
 </script>
 
 <div class="h-[100vh] grid place-items-center relative overflow-hidden">
