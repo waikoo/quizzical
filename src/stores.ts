@@ -4,8 +4,8 @@ export const baseUrl = "https://opentdb.com/api.php?";
 
 export const url = writable(baseUrl)
 
-export type GameState = "settings" | "fetching" | "playing" | "end";
-export const gameState = writable<GameState>("settings");
+export type GameState = "greeting" | "settings" | "fetching" | "playing" | "end";
+export const gameState = writable<GameState>("greeting");
 
 export type GameSpeed = "slow" | "medium" | "fast"
 export const gameSpeed = writable<GameSpeed>("slow")

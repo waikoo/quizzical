@@ -2,11 +2,12 @@
   import End from "./components/End.svelte";
   import Game from "./components/Game.svelte";
   import Settings from "./components/Settings.svelte";
-  import ThemeToggler from "./components/ThemeToggler.svelte";
   import { url, gameState, baseUrl, gameSpeed, gamePoints } from "./stores";
   import type { TriviaQuestionWithUuid } from "./type";
   import fetchQuestions from "./utils/fetchQuestions";
   import addUuids from "./utils/addUuids";
+  import Greeting from "./components/Greeting.svelte";
+  import "./app.css";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
   let isFetchingError = $state<boolean>(false);
@@ -28,12 +29,9 @@
 </script>
 
 <main class="">
-  <div class="flex justify-between p-2">
-    <a href="/" class="text-center">Quizzical</a>
-    <ThemeToggler />
-  </div>
-
-  {#if $gameState === "settings"}
+  {#if $gameState === "greeting"}
+    <Greeting />
+  {:else if $gameState === "settings"}
     <Settings {url} {gameSpeed} />
   {:else if $gameState === "playing"}
     <Game {gameQuestions} {gameSpeed} {gameState} {gamePoints} />

@@ -2,8 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* agdasima-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Agdasima";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/agdasima-v4-latin-700.woff2") format("woff2");
+}
+
+/* monoton-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Monoton";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/monoton-v20-latin-regular.woff2") format("woff2");
+}
+
+/* anton-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/anton-v25-latin-regular.woff2") format("woff2");
+}
+
+/* akshar-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Akshar";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/akshar-v14-latin-regular.woff2") format("woff2");
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,12 +46,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
-html[data-theme="dark"] {
-  body {
-    background: #000;
-    color: #fff;
-  }
+body {
+  min-height: 100vh;
+  background-image: url("./assets/images/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
