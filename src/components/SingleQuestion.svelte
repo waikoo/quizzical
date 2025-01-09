@@ -43,7 +43,7 @@
 <article class="pb-10">
   <div class="mx-auto quizzicalContainer rounded-[40px] mt-2">
     <p class="text-center text-[#E3BF00] p-2 block relative">
-      10/{questionLength}
+      {$gamePoints}/{questionLength}
     </p>
   </div>
   <TimeoutBar {timer} />
@@ -60,10 +60,10 @@
     <div class="flex flex-col gap-4">
       {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
         <div
-          class={`gradientBorder akshar ${showAnswer && answer.uuid === question.correct_answer.uuid ? "correctBg" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "incorrectBg" : ""}`}
+          class={`gradientBorder akshar p-[2px] ${showAnswer && answer.uuid === question.correct_answer.uuid ? "correctBg" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "incorrectBg" : ""}`}
         >
           <button
-            class={`border-[1px] w-full border-black p-2 bg-black rounded-full ${showAnswer && answer.uuid === question.correct_answer.uuid ? "bg-[#386200]" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "bg-[#A12901]" : ""}`}
+            class={`border-[1px] w-full border-black p-2 rounded-full ${showAnswer && answer.uuid === question.correct_answer.uuid ? "bg-[#386200] border-none" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "bg-[#A12901] border-none" : "bg-black "}`}
             data-uuid={answer.uuid}
             onclick={handleClick}>{decodeHtmlEntities(answer.answer)}</button
           >
@@ -91,7 +91,6 @@
   .gradientBorder {
     background: linear-gradient(#2b2b2b, black);
     border-radius: 40px;
-    padding: 2px;
     box-shadow: 4px 3px 10px #2f2f2f;
   }
 
