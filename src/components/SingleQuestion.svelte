@@ -1,8 +1,10 @@
 <script lang="ts">
-  import decodeHtmlEntities from "../utils/decodeHtmlEntities";
-  import type { TriviaQuestionWithUuid } from "../type";
-  import randomizeAnswers from "../utils/randomizeAnswers";
   import type { Writable } from "svelte/store";
+
+  import decodeHtmlEntities from "../utils/decodeHtmlEntities";
+  import randomizeAnswers from "../utils/randomizeAnswers";
+  import type { TriviaQuestionWithUuid } from "../type";
+  import TimeoutBar from "./TimeoutBar.svelte";
 
   let {
     question,
@@ -38,20 +40,70 @@
   };
 </script>
 
-<article>
-  <div class="flex">
-    <p class="text-white">{decodeHtmlEntities(question.question)}</p>
-    <span class="ml-10">{$gamePoints}/{questionLength}</span>
-    <span class="ml-10">{timer}</span>
+<article class="pb-10">
+  <div class="mx-auto quizzicalContainer rounded-[40px] mt-2">
+    <p class="text-center text-[#E3BF00] p-2 block relative">
+      10/{questionLength}
+    </p>
   </div>
+  <TimeoutBar {timer} />
 
-  <div class="mt-2">
-    {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
-      <button
-        class={`border-[1px] border-black p-2 bg-black text-white ${showAnswer && answer.uuid === question.correct_answer.uuid ? "border-green-400" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "border-red-300" : ""}`}
-        data-uuid={answer.uuid}
-        onclick={handleClick}>{decodeHtmlEntities(answer.answer)}</button
-      >
-    {/each}
-  </div>
+  <section
+    class="flex flex-col gap-8 text-[1.063rem] text-[#E6DEB6] mx-auto w-[90%]"
+  >
+    <div class="gradientBorder">
+      <p class="bg-[#180F05] p-8 px-10 rounded-full text-center akshar">
+        {decodeHtmlEntities(question.question)}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
+        <div
+          class={`gradientBorder akshar ${showAnswer && answer.uuid === question.correct_answer.uuid ? "correctBg" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "incorrectBg" : ""}`}
+        >
+          <button
+            class={`border-[1px] w-full border-black p-2 bg-black rounded-full ${showAnswer && answer.uuid === question.correct_answer.uuid ? "bg-[#386200]" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "bg-[#A12901]" : ""}`}
+            data-uuid={answer.uuid}
+            onclick={handleClick}>{decodeHtmlEntities(answer.answer)}</button
+          >
+        </div>
+      {/each}
+    </div>
+  </section>
 </article>
+
+<style>
+  .quizzicalContainer {
+    width: fit-content;
+    padding: 1px 3px;
+    background: linear-gradient(#2b2b2b, black);
+    box-shadow: 4px 4px 20px #000000;
+  }
+
+  div > p {
+    font-family: "Anton", sans-serif;
+    padding: 6px 20px;
+    background: #180f05;
+    border-radius: 40px;
+  }
+
+  .gradientBorder {
+    background: linear-gradient(#2b2b2b, black);
+    border-radius: 40px;
+    padding: 2px;
+    box-shadow: 4px 3px 10px #2f2f2f;
+  }
+
+  .akshar {
+    font-family: "Akshar", sans-serif;
+  }
+
+  .correctBg {
+    background: linear-gradient(#4e9731, #132e09);
+  }
+
+  .incorrectBg {
+    background: linear-gradient(#e13800, #551500);
+  }
+</style>

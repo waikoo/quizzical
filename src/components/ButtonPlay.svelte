@@ -18,7 +18,6 @@
   button::before {
     content: "";
     position: absolute;
-    left: 0;
     width: 82%;
     inset: 0;
     margin: auto;

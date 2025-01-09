@@ -3,6 +3,7 @@
   import type { TriviaQuestionWithUuid } from "../type";
   import SingleQuestion from "./SingleQuestion.svelte";
   import type { GameSpeed, GameState } from "../stores";
+  import QuizzicalTitle from "./QuizzicalTitle.svelte";
 
   const {
     gameQuestions,
@@ -65,6 +66,7 @@
   startCountdown();
 </script>
 
+<QuizzicalTitle hasBorder={true} />
 <SingleQuestion
   question={gameQuestions[questionCount - 1]}
   {timer}
