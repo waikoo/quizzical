@@ -16,6 +16,10 @@
     if ($gameState === "fetching") {
       (async () => {
         try {
+          if ($url === baseUrl) {
+            // play with a default of 10 questions
+            $url = "https://opentdb.com/api.php?amount=10";
+          }
           gameQuestions = addUuids(await fetchQuestions($url));
 
           if (gameQuestions.length === 0) {
