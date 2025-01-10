@@ -41,13 +41,4 @@
     box-shadow: 4px 4px 20px black;
     padding: 10px 0;
   }
-
-  .selected {
-    background: linear-gradient(#e3bf00, black);
-    color: #180f05;
-  }
-
-  .selected > div {
-    background: #e3bf00;
-  }
 </style>
