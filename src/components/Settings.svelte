@@ -3,13 +3,13 @@
   import CategorySettings from "./CategorySettings.svelte";
   import QuestionSettings from "./QuestionSettings.svelte";
   import DifficultySettings from "./DifficultySettings.svelte";
-  import TypeSettings from "./TypeSettings.svelte";
   import { gameState, type GameSpeed } from "../stores";
   import TimerSettings from "./TimerSettings.svelte";
   import ButtonPlay from "./ButtonPlay.svelte";
   import QuizzicalTitle from "./QuizzicalTitle.svelte";
   import type { TCategory, TSettings, TSettingsArr } from "../type";
   import { categories } from "../categories";
+  import ButtonBack from "./ButtonBack.svelte";
 
   let { url }: { url: Writable<string>; gameSpeed: Writable<GameSpeed> } =
     $props();
@@ -51,22 +51,23 @@
       values: ["easy", "medium", "hard"],
       buildUrl: buildUrl,
     },
-    {
-      name: "Type",
-      values: ["multiple choice", "true / false"],
-      buildUrl: buildUrl,
-    },
   ];
 </script>
 
-<QuizzicalTitle hasBorder={true} />
+<div class="grid grid-cols-[auto_1fr_auto]">
+  <div class="w-0 relative">
+    <a href="/">
+      <ButtonBack />
+    </a>
+  </div>
+  <QuizzicalTitle hasBorder={true} />
+</div>
 
 <section class="flex flex-col gap-8 pb-[6rem]">
   <TimerSettings category={settingsCategory[0] as TSettings<string>} />
   <QuestionSettings category={settingsCategory[1] as TSettings<number>} />
   <CategorySettings category={settingsCategory[2] as TSettings<TCategory>} />
   <DifficultySettings category={settingsCategory[3] as TSettings<string>} />
-  <TypeSettings category={settingsCategory[4] as TSettings<string>} />
 </section>
 
 <div class="fixed left-0 right-0 bottom-8 w-[80%] mx-auto">
