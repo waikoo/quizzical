@@ -67,12 +67,16 @@
 </script>
 
 <QuizzicalTitle hasBorder={true} />
-<SingleQuestion
-  question={gameQuestions[questionCount - 1]}
-  {timer}
-  {gamePoints}
-  {setHasAnswered}
-  {setShowAnswer}
-  {showAnswer}
-  questionLength={gameQuestions.length}
-/>
+{#if gameQuestions.length === 0}
+  <p class="text-yellow-400 text-bold text-center">Something went wrong...</p>
+{:else}
+  <SingleQuestion
+    question={gameQuestions[questionCount - 1]}
+    {timer}
+    {gamePoints}
+    {setHasAnswered}
+    {setShowAnswer}
+    {showAnswer}
+    questionLength={gameQuestions.length}
+  />
+{/if}
