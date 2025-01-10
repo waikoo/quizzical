@@ -1,18 +1,21 @@
 <script lang="ts">
   let { hasBorder }: { hasBorder: boolean } = $props();
-  const borderStyles = hasBorder
+
+  const divStyles = hasBorder
     ? "tracking-[-1px] text-[1.875rem]"
-    : "tracking-[-3.1px] text-[3.375rem]";
-  const borderText = hasBorder ? "text-[1.625rem]" : "text-[2.875rem]";
-  const borderBg = hasBorder ? "p-2 bg-[#19151d] w-[70%] shadow-md" : "";
+    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-4.3px]";
+  const qStyles = hasBorder
+    ? "text-[1.625rem]"
+    : "text-[2.875rem] md:text-[5.938rem]";
+  const aStyles = hasBorder ? "p-2 bg-[#19151d] w-[70%] shadow-md" : "";
 </script>
 
-<div class={`${borderStyles}`}>
+<div class={`${divStyles}`}>
   <a
-    class={`block ${borderBg} text-center rounded-full mx-auto cursor-pointer`}
+    class={`block ${aStyles} text-center rounded-full mx-auto cursor-pointer`}
     href="/"
   >
-    <span class={`text-[#FFA13D] ${borderText}`}>Q</span>
+    <span class={`text-[#FFA13D] ${qStyles}`}>Q</span>
     <span class="text-[#2775E9]">u</span>
     <span class="text-[#FF82E6]">i</span>
     <span class="text-[#FCFF46]">z</span>
