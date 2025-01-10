@@ -29,6 +29,7 @@
   let timer = $state(questionTimer);
 
   const startCountdown = () => {
+    const SHOW_RIGHT_ANSWER_FOR_MS = 1200;
     const intervalId = setInterval(() => {
       if (timer > 0) {
         timer--;
@@ -40,9 +41,12 @@
         if (hasAnswered) {
           setTimeout(() => {
             moveToNextQuestion();
-          }, 2000);
+          }, SHOW_RIGHT_ANSWER_FOR_MS);
         } else {
-          moveToNextQuestion();
+          setShowAnswer(true);
+          setTimeout(() => {
+            moveToNextQuestion();
+          }, SHOW_RIGHT_ANSWER_FOR_MS);
         }
       }
     }, 1000);

@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Writable } from "svelte/store";
-
   import decodeHtmlEntities from "../utils/decodeHtmlEntities";
   import randomizeAnswers from "../utils/randomizeAnswers";
   import type { TriviaQuestionWithUuid } from "../type";
@@ -24,17 +23,48 @@
     setShowAnswer: (value: boolean) => void;
   } = $props();
 
-  const handleClick = (e: MouseEvent) => {
-    const target = e.target as HTMLButtonElement;
-    const uuid = target.dataset.uuid;
+  let incorrectAnswerId = $state<string | null>(null);
 
+  $effect(() => {
+    if (question) {
+      incorrectAnswerId = null;
+    }
+  });
+
+  const handleClick = (answer: { uuid: string; answer: string }) => {
     setHasAnswered(true);
     setShowAnswer(true);
-    if (uuid === question.correct_answer.uuid) {
+    const correctAnswerIsClicked = answer.uuid === question.correct_answer.uuid;
+
+    if (correctAnswerIsClicked) {
       $gamePoints++;
     } else {
-      return;
+      incorrectAnswerId = answer.uuid;
     }
+  };
+
+  const getAnswerClasses = (answer: { uuid: string; answer: string }) => {
+    const baseClasses = "border-[1px] w-full border-black p-2 rounded-full";
+
+    if (showAnswer && answer.uuid === question.correct_answer.uuid) {
+      return `${baseClasses} bg-[#386200] border-none`;
+    }
+    if (answer.uuid === incorrectAnswerId) {
+      return `${baseClasses} bg-[#A12901]`;
+    }
+    return `${baseClasses} bg-[#180f05]`;
+  };
+
+  const getContainerClasses = (answer: { uuid: string; answer: string }) => {
+    const baseClasses = "gradientBorder akshar p-[2px]";
+
+    if (showAnswer && answer.uuid === question.correct_answer.uuid) {
+      return `${baseClasses} correctBg`;
+    }
+    if (answer.uuid === incorrectAnswerId) {
+      return `${baseClasses} incorrectBg`;
+    }
+    return baseClasses;
   };
 </script>
 
@@ -59,14 +89,13 @@
 
     <div class="flex flex-col gap-4 text-[1.063rem] md:text-[1.438rem]">
       {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
-        <div
-          class={`gradientBorder akshar p-[2px] ${showAnswer && answer.uuid === question.correct_answer.uuid ? "correctBg" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "incorrectBg" : ""}`}
-        >
+        <div class={getContainerClasses(answer)}>
           <button
-            class={`border-[1px] w-full border-black p-2 rounded-full ${showAnswer && answer.uuid === question.correct_answer.uuid ? "bg-[#386200] border-none" : showAnswer && answer.uuid !== question.correct_answer.uuid ? "bg-[#A12901] border-none" : "bg-[#180f05] "}`}
-            data-uuid={answer.uuid}
-            onclick={handleClick}>{decodeHtmlEntities(answer.answer)}</button
+            class={getAnswerClasses(answer)}
+            onclick={() => handleClick(answer)}
           >
+            {decodeHtmlEntities(answer.answer)}
+          </button>
         </div>
       {/each}
     </div>
@@ -106,3 +135,4 @@
     background: linear-gradient(#e13800, #551500);
   }
 </style>
+
