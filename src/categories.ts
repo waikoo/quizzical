@@ -1,4 +1,6 @@
-export const categories = [
+import type { TCategory } from "./type";
+
+const nonAlphabeticalCategories: TCategory[] = [
   { id: 9, name: "General Knowledge" },
   { id: 10, name: "Books" },
   { id: 11, name: "Film" },
@@ -25,3 +27,4 @@ export const categories = [
   { id: 28, name: "Vehicles" },
 ];
 
+export const categories = nonAlphabeticalCategories.sort((a, b) => a.name.localeCompare(b.name));

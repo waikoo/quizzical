@@ -36,7 +36,7 @@
   });
 </script>
 
-<main class="">
+<main>
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}

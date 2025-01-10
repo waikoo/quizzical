@@ -6,47 +6,72 @@
   import TypeSettings from "./TypeSettings.svelte";
   import { gameState, type GameSpeed } from "../stores";
   import TimerSettings from "./TimerSettings.svelte";
+  import ButtonPlay from "./ButtonPlay.svelte";
+  import QuizzicalTitle from "./QuizzicalTitle.svelte";
+  import type { TCategory, TSettings, TSettingsArr } from "../type";
+  import { categories } from "../categories";
 
-  let {
-    url,
-    gameSpeed,
-  }: { url: Writable<string>; gameSpeed: Writable<GameSpeed> } = $props();
+  let { url }: { url: Writable<string>; gameSpeed: Writable<GameSpeed> } =
+    $props();
   type UrlKey = "category" | "amount" | "difficulty" | "type";
   type UrlValue = number | string;
 
   const buildUrl = (e: MouseEvent) => {
-    const target = e.target as HTMLButtonElement;
+    const target = e.currentTarget as HTMLButtonElement;
     const name = target.dataset.name as UrlKey;
     const value = target.dataset[name as UrlValue] as UrlValue;
 
     const urlValue = get(url);
     const newUrl = new URL(urlValue);
     if (value !== "any") {
-      newUrl.searchParams.set(name, value.toString());
+      newUrl.searchParams.set(name, value.toString() || `${value}`);
     } else {
       newUrl.searchParams.delete(name);
     }
     url.set(newUrl.toString());
   };
 
-  function startGame() {
-    $gameState = "fetching";
-  }
+  const settingsCategory: TSettingsArr = [
+    {
+      name: "Speed",
+      values: ["slow", "medium", "fast"],
+    },
+    {
+      name: "Number of Questions",
+      values: [10, 25, 50],
+      buildUrl: buildUrl,
+    },
+    {
+      name: "Category",
+      values: categories,
+      buildUrl: buildUrl,
+    },
+    {
+      name: "Difficulty",
+      values: ["easy", "medium", "hard"],
+      buildUrl: buildUrl,
+    },
+    {
+      name: "Type",
+      values: ["multiple choice", "true / false"],
+      buildUrl: buildUrl,
+    },
+  ];
 </script>
 
-<h1 class="">Welcome to Quizzical!</h1>
+<QuizzicalTitle hasBorder={true} />
 
-<TimerSettings {gameSpeed} />
-<QuestionSettings addSetting={buildUrl} />
-<CategorySettings addSetting={buildUrl} />
-<DifficultySettings addSetting={buildUrl} />
-<TypeSettings addSetting={buildUrl} />
-<div>{$url}</div>
-<div>{$gameSpeed}</div>
+<section class="flex flex-col gap-8 pb-[6rem]">
+  <TimerSettings category={settingsCategory[0] as TSettings<string>} />
+  <QuestionSettings category={settingsCategory[1] as TSettings<number>} />
+  <CategorySettings category={settingsCategory[2] as TSettings<TCategory>} />
+  <DifficultySettings category={settingsCategory[3] as TSettings<string>} />
+  <TypeSettings category={settingsCategory[4] as TSettings<string>} />
+</section>
 
-<button class="block border-[1px] border-gray-300 p-2" onclick={startGame}
-  >Start Game</button
->
+<div class="fixed left-0 right-0 bottom-8 w-[80%] mx-auto">
+  <ButtonPlay />
+</div>
 
 {#if $gameState === "fetching"}
   <span class="text-red-300 relative z-2">Loading questions...</span>

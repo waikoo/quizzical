@@ -31,10 +31,8 @@
     setHasAnswered(true);
     setShowAnswer(true);
     if (uuid === question.correct_answer.uuid) {
-      console.log("correct");
       $gamePoints++;
     } else {
-      console.log("incorrect");
       return;
     }
   };

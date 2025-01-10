@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { gameState } from "../stores";
+  import { gameState, url } from "../stores";
 
   function startGame() {
+    console.log($url);
     $gameState = "fetching";
   }
 </script>

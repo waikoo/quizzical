@@ -1,8 +1,15 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import { gameState } from "../stores";
+
+  function showSettings() {
+    $gameState = "settings";
+  }
+</script>
 
 <div class="w-full h-full relative">
   <button
     class="text-[#FFF3D4] bg-[#344666] shadow-md rounded-full mx-auto h-[80%] block w-[80%] hover:bg-[#9DA0EA] border-0 hover:text-[#1E1830]"
+    onclick={showSettings}
     >SETTINGS
   </button>
 </div>

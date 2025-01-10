@@ -1,9 +1,15 @@
 <script lang="ts">
+  import { gameSpeed } from "../stores";
+
   let { timer }: { timer: number } = $props();
-  const totalTime = 60;
+  const totalTime = {
+    slow: 60,
+    medium: 30,
+    fast: 10,
+  };
 
   const calculateWidth = () => {
-    return `${((totalTime - timer) / totalTime) * 100}%`;
+    return `${((totalTime[$gameSpeed] - timer) / totalTime[$gameSpeed]) * 100}%`;
   };
 </script>
 

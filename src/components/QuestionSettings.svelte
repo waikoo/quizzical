@@ -1,16 +1,53 @@
 <script lang="ts">
-  const { addSetting }: { addSetting: (e: MouseEvent) => void } = $props();
+  import { url } from "../stores";
+  import type { TSettings } from "../type";
+  import SettingsCard from "./SettingsCard.svelte";
+  import { derived } from "svelte/store";
 
-  const questions = [10, 25, 50];
+  const { category }: { category: TSettings<number> } = $props();
+
+  const currentAmount = derived(url, ($url) => {
+    const urlObj = new URL($url);
+    return urlObj.searchParams.get("amount");
+  });
 </script>
 
-<p>How many questions?</p>
+<SettingsCard {category}>
+  <div class="grid gap-6 text-[#E6DEB6]">
+    {#each category.values as nrOfquestions}
+      <button
+        class="p-2 rounded-full"
+        class:selected={$currentAmount === nrOfquestions.toString()}
+        data-name="amount"
+        data-amount={nrOfquestions}
+        onclick={category.buildUrl}
+      >
+        <div class="rounded-full bg-[#180f05]">{nrOfquestions}</div>
+      </button>
+    {/each}
+  </div>
+</SettingsCard>
 
-{#each questions as question}
-  <button
-    class="p-2 border-[1px] border-gray-300"
-    data-name="amount"
-    data-amount={question}
-    onclick={addSetting}>{question}</button
-  >
-{/each}
+<style>
+  button {
+    background: linear-gradient(#2b2b2b, black);
+    padding: 2px;
+    box-shadow: -3px -3px 10px -3px #3e2528;
+    text-transform: uppercase;
+    font-family: "Anton", sans-serif;
+  }
+
+  button div {
+    box-shadow: 4px 4px 20px black;
+    padding: 10px 0;
+  }
+
+  .selected {
+    background: linear-gradient(#e3bf00, black);
+    color: #180f05;
+  }
+
+  .selected > div {
+    background: #e3bf00;
+  }
+</style>

@@ -27,3 +27,18 @@ const triviaQuestionWithUuid = z.object({
 });
 
 export type TriviaQuestionWithUuid = z.infer<typeof triviaQuestionWithUuid>;
+
+export type TSettings<T> = {
+  name: string;
+  values: T[];
+  buildUrl?: (e: MouseEvent) => void;
+};
+
+export type TSettingsArr = Array<
+  TSettings<string> | TSettings<number> | TSettings<TCategory>
+>;
+export type TCategory = {
+  id: number,
+  name: string
+}
+
