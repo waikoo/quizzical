@@ -3,6 +3,7 @@
   import { baseUrl, type GameState } from "../stores";
   import ButtonPlay from "./ButtonPlay.svelte";
   import ButtonSettings from "./ButtonSettings.svelte";
+  import ButtonTryAgain from "./ButtonTryAgain.svelte";
 
   const {
     questionLength,
@@ -34,14 +35,16 @@
   };
 </script>
 
-<div class="text-white">
-  <h2 class="text-[#F56332] text-[2.25rem]">PERFECT SCORE!</h2>
-  <p class="text-[1.063rem] text-[#DBCD9E]">
-    {$gamePoints}/{questionLength} questions correct
-  </p>
+<div class="text-center flex flex-col gap-8">
+  <div>
+    <h2 class="text-[#F56332] text-[2.25rem]">PERFECT SCORE!</h2>
+    <p class="text-[1.063rem] text-[#DBCD9E] uppercase">
+      {$gamePoints}/{questionLength} answers correct
+    </p>
+  </div>
 
-  <div class="flex flex-col gap-4">
-    <button onclick={tryAgain}>Try Again</button>
+  <div class="flex flex-col gap-8">
+    <ButtonTryAgain handler={tryAgain}>Try Again</ButtonTryAgain>
     <ButtonPlay handler={playDefault}>Play (Default)</ButtonPlay>
     <ButtonSettings handler={goToSettings} />
   </div>

@@ -7,13 +7,28 @@
 
 <div class="w-full h-full relative">
   <button
-    class="text-[#AD2B00] text-[1.313rem] tracking-[0.4px] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[80%] hover:bg-[#F55C28] hover:text-[#3F1001] uppercase"
+    class="text-[1.313rem] tracking-[0.4px] uppercase rounded-full mx-auto block h-[36px] w-[79%]"
     onclick={handler}
-    >{@render children()}
+  >
+    <div
+      class="rounded-full bg-[#180F05] hover:bg-[#F2E01F] hover:text-[#3A1608] text-[#FFF1D4] w-[97%] mx-auto"
+    >
+      {@render children()}
+    </div>
   </button>
 </div>
 
 <style>
+  button {
+    box-shadow: 3px 3px 4px black;
+    background: linear-gradient(#e66e46, #994f36);
+  }
+
+  button div {
+    box-shadow: 0px 0px 2px #342905;
+    /* padding: 2px; */
+    position: relative;
+  }
   button::before {
     content: "";
     position: absolute;
@@ -23,7 +38,7 @@
     height: 120%;
     border-radius: 9999px;
     z-index: -1;
-    background: linear-gradient(#e66e46, #994f36);
+    background: #fff1d4;
     border: 2px solid #dcc600;
     box-shadow: 3px 3px 10 #766a00;
   }
@@ -37,7 +52,7 @@
     height: 150%;
     border-radius: 9999px;
     z-index: -2;
-    background: linear-gradient(#f66231, #af2c00);
+    background: linear-gradient(#535353, #3a3305);
     box-shadow: 3px 3px 10px #16140a;
   }
 
