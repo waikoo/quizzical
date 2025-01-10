@@ -68,7 +68,9 @@
 
 <QuizzicalTitle hasBorder={true} />
 {#if gameQuestions.length === 0}
-  <p class="text-yellow-400 text-bold text-center">Something went wrong...</p>
+  <p class="text-yellow-400 text-bold text-center">
+    Something went wrong... Please refresh and try again.
+  </p>
 {:else}
   <SingleQuestion
     question={gameQuestions[questionCount - 1]}
