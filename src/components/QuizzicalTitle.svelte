@@ -7,9 +7,7 @@
   const qStyles = hasBorder
     ? "text-[1.625rem] md:text-[2.563rem]"
     : "text-[2.875rem] md:text-[5.938rem]";
-  const aStyles = hasBorder
-    ? "p-2 bg-[#19151d] w-[70%] md:w-full shadow-md"
-    : "";
+  const aStyles = hasBorder ? "py-0 px-2 bg-[#19151d] md:w-full shadow-md" : "";
 </script>
 
 <div class={`${divStyles} md:w-fit md:mx-auto`}>
@@ -36,6 +34,7 @@
 
   a {
     font-family: "Monoton", sans-serif;
-    /* box-shadow: 1px 1px 1px black; */
+    box-shadow: 1px 1px 1px black;
+    max-width: fit-content;
   }
 </style>
