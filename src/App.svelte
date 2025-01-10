@@ -5,15 +5,17 @@
   import { url, gameState, baseUrl, gameSpeed, gamePoints } from "./stores";
   import type { TriviaQuestionWithUuid } from "./type";
   import Greeting from "./components/Greeting.svelte";
-  import "./app.css";
   import addUuids from "./utils/addUuids";
   import fetchQuestions from "./utils/fetchQuestions";
+  import "./app.css";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
   let isFetchingError = $state<boolean>(false);
+  let hasFetchedQuestions = false;
 
   $effect(() => {
-    if ($gameState === "fetching") {
+    if ($gameState === "fetching" && !hasFetchedQuestions) {
+      hasFetchedQuestions = true;
       (async () => {
         try {
           if ($url === baseUrl) {
