@@ -5,7 +5,7 @@
     $props();
 </script>
 
-<div class="w-full h-full relative">
+<div class="w-full h-full relative isolate">
   <button
     class="text-[1.313rem] tracking-[0.4px] uppercase rounded-full mx-auto block h-[36px] w-[79%]"
     onclick={handler}

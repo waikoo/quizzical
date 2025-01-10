@@ -2,7 +2,7 @@
   const { handler }: { handler: () => void } = $props();
 </script>
 
-<div class="w-full h-full relative">
+<div class="w-full h-full relative isolate">
   <button
     class="text-[#FFF3D4] text-[1.313rem] tracking-[0.4px] bg-[#344666] shadow-md rounded-full mx-auto h-[80%] block w-[80%] hover:bg-[#9DA0EA] border-0 hover:text-[#1E1830]"
     onclick={handler}

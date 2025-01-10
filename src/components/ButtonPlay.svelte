@@ -5,7 +5,7 @@
     $props();
 </script>
 
-<div class="w-full h-full relative">
+<div class="w-full h-full relative isolate">
   <button
     class="text-[#AD2B00] text-[1.313rem] tracking-[0.4px] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[80%] hover:bg-[#F55C28] hover:text-[#3F1001] uppercase"
     onclick={handler}
