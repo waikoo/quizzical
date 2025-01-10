@@ -9,11 +9,14 @@
 </script>
 
 <article
-  class="bg-[#180F05] p-[1px] w-full rounded-[25px] mx-auto max-w-[216px]"
+  class="bg-[#180F05] p-[1px] w-full rounded-[25px] mx-auto max-w-[216px] md:max-w-[606px]"
   class:max-w-[281px]={category.name === "Category"}
+  class:md:min-w-[424px]={category.name === "Difficulty"}
 >
   <div class="flex flex-col gap-2 bg-[#180F05] py-4 px-8 rounded-[25px]">
-    <h2 class="text-[#E46136] text-center text-[1.375rem]">{category.name}</h2>
+    <h2 class="text-[#E46136] text-center text-[1.375rem] md:text-[1.75rem]">
+      {category.name}
+    </h2>
 
     {@render children()}
   </div>
@@ -31,5 +34,11 @@
 
   article > div {
     box-shadow: 0px 15px 50px #180f05;
+  }
+
+  @media (min-width: 768px) {
+    article:last-of-type {
+      max-width: 424px;
+    }
   }
 </style>

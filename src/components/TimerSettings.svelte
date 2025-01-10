@@ -21,10 +21,10 @@
 </script>
 
 <SettingsCard {category}>
-  <div class="grid gap-6 text-[#E6DEB6]">
+  <div class="grid gap-6 text-[#E6DEB6] md:grid-cols-3">
     {#each category.values as speed}
       <button
-        class={`p-2 rounded-full settingsButton`}
+        class="p-2 rounded-full settingsButton text-[1.375rem] md:text-[1.75rem]"
         class:selected={$gameSpeed === speed}
         data-speed={speed}
         onclick={setGameSpeed}

@@ -2,15 +2,17 @@
   let { hasBorder }: { hasBorder: boolean } = $props();
 
   const divStyles = hasBorder
-    ? "tracking-[-1px] text-[1.875rem]"
+    ? "tracking-[-1px] text-[1.875rem] md:text-[3.063rem] md:tracking-[0.5-px]"
     : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-4.3px]";
   const qStyles = hasBorder
-    ? "text-[1.625rem]"
+    ? "text-[1.625rem] md:text-[2.563rem]"
     : "text-[2.875rem] md:text-[5.938rem]";
-  const aStyles = hasBorder ? "p-2 bg-[#19151d] w-[70%] shadow-md" : "";
+  const aStyles = hasBorder
+    ? "p-2 bg-[#19151d] w-[70%] md:w-full shadow-md"
+    : "";
 </script>
 
-<div class={`${divStyles}`}>
+<div class={`${divStyles} md:w-fit md:mx-auto`}>
   <a
     class={`block ${aStyles} text-center rounded-full mx-auto cursor-pointer`}
     href="/"

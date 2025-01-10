@@ -13,7 +13,7 @@
 </script>
 
 <SettingsCard {category}>
-  <div class="text-[#E6DEB6] grid gap-4">
+  <div class="text-[#E6DEB6] grid gap-4 md:grid-cols-2">
     <button
       class="p-2 rounded-full settingsButton"
       data-difficulty="any"
@@ -21,7 +21,9 @@
       class:selected={$currentDifficulty === null}
       onclick={category.buildUrl}
     >
-      <div class="rounded-full bg-[#180f05]">Any</div>
+      <div class="rounded-full bg-[#180f05] text-[1.063px] md:text-[1.438rem]">
+        Any
+      </div>
     </button>
 
     {#each category.values as difficulty}
@@ -32,7 +34,9 @@
         class:selected={$currentDifficulty === difficulty}
         onclick={category.buildUrl}
       >
-        <div class="rounded-full bg-[#180f05]">
+        <div
+          class="rounded-full bg-[#180f05] text-[1.063px] md:text-[1.438rem]"
+        >
           {difficulty}
         </div>
       </button>

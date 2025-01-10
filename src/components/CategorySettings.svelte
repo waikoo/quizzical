@@ -13,7 +13,9 @@
 </script>
 
 <SettingsCard {category}>
-  <div class="text-[#E6DEB6] flex flex-wrap gap-3 justify-center">
+  <div
+    class="text-[#E6DEB6] flex flex-wrap gap-3 justify-center text-[1.375rem] md:text-[1.75rem]"
+  >
     <button
       class="p-2 rounded-full settingsButton"
       data-name="category"
@@ -26,7 +28,7 @@
 
     {#each category.values as categoryVal}
       <button
-        class="p-4 rounded-full settingsButton"
+        class="p-4 px-8 rounded-full settingsButton"
         data-category={categoryVal.id}
         data-name="category"
         class:selected={$currentCategory === categoryVal.id.toString()}
