@@ -15,7 +15,7 @@
 <SettingsCard {category}>
   <div class="text-[#E6DEB6] flex flex-wrap gap-3 justify-center">
     <button
-      class="p-2 rounded-full"
+      class="p-2 rounded-full settingsButton"
       data-name="category"
       data-category="any"
       class:selected={$currentCategory === null}
@@ -26,7 +26,7 @@
 
     {#each category.values as categoryVal}
       <button
-        class="p-4 rounded-full"
+        class="p-4 rounded-full settingsButton"
         data-category={categoryVal.id}
         data-name="category"
         class:selected={$currentCategory === categoryVal.id.toString()}
@@ -39,18 +39,3 @@
     {/each}
   </div>
 </SettingsCard>
-
-<style>
-  button {
-    background: linear-gradient(#2b2b2b, black);
-    padding: 2px;
-    box-shadow: -3px -3px 10px -3px #3e2528;
-    text-transform: uppercase;
-    font-family: "Anton", sans-serif;
-  }
-
-  button div {
-    box-shadow: 4px 4px 20px black;
-    padding: 10px 10px;
-  }
-</style>

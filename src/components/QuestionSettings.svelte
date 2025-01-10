@@ -16,7 +16,7 @@
   <div class="grid gap-6 text-[#E6DEB6]">
     {#each category.values as nrOfquestions}
       <button
-        class="p-2 rounded-full"
+        class="p-2 rounded-full settingsButton"
         class:selected={$currentAmount === nrOfquestions.toString()}
         data-name="amount"
         data-amount={nrOfquestions}
@@ -29,16 +29,4 @@
 </SettingsCard>
 
 <style>
-  button {
-    background: linear-gradient(#2b2b2b, black);
-    padding: 2px;
-    box-shadow: -3px -3px 10px -3px #3e2528;
-    text-transform: uppercase;
-    font-family: "Anton", sans-serif;
-  }
-
-  button div {
-    box-shadow: 4px 4px 20px black;
-    padding: 10px 0;
-  }
 </style>

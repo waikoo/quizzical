@@ -15,7 +15,7 @@
 <SettingsCard {category}>
   <div class="text-[#E6DEB6] grid gap-4">
     <button
-      class="p-2 rounded-full"
+      class="p-2 rounded-full settingsButton"
       data-difficulty="any"
       data-name="difficulty"
       class:selected={$currentDifficulty === null}
@@ -26,7 +26,7 @@
 
     {#each category.values as difficulty}
       <button
-        class="p-2 rounded-full"
+        class="p-2 rounded-full settingsButton"
         data-difficulty={difficulty.toLowerCase()}
         data-name="difficulty"
         class:selected={$currentDifficulty === difficulty}
@@ -39,18 +39,3 @@
     {/each}
   </div>
 </SettingsCard>
-
-<style>
-  button {
-    background: linear-gradient(#2b2b2b, black);
-    padding: 2px;
-    box-shadow: -3px -3px 10px -3px #3e2528;
-    text-transform: uppercase;
-    font-family: "Anton", sans-serif;
-  }
-
-  button div {
-    box-shadow: 4px 4px 20px black;
-    padding: 10px 10px;
-  }
-</style>

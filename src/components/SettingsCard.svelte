@@ -1,10 +1,11 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import type { TSettings } from "../type";
+  import type { TCategory, TSettings } from "../type";
   const {
     category,
     children,
-  }: { category: TSettings<string>; children: Snippet } = $props();
+  }: { category: TSettings<string | number | TCategory>; children: Snippet } =
+    $props();
 </script>
 
 <article
