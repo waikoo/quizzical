@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 
-export const baseUrl = "https://opentdb.com/api.php?amount=25";
+export const baseUrl = "https://opentdb.com/api.php?amount=25&type=multiple";
 
 export const url = writable(baseUrl)
 
