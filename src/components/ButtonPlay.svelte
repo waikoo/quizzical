@@ -1,15 +1,14 @@
 <script lang="ts">
-  import { gameState, url } from "../stores";
+  import { gameState } from "../stores";
 
   function startGame() {
-    console.log($url);
     $gameState = "fetching";
   }
 </script>
 
 <div class="w-full h-full relative">
   <button
-    class="text-[#AD2B00] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[80%] hover:bg-[#F55C28] hover:text-[#3F1001]"
+    class="text-[#AD2B00] text-[1.313rem] tracking-[0.4px] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[80%] hover:bg-[#F55C28] hover:text-[#3F1001]"
     onclick={startGame}
     >PLAY
   </button>
