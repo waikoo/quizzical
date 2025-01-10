@@ -2,6 +2,7 @@
   import { type Writable } from "svelte/store";
   import { baseUrl, type GameState } from "../stores";
   import ButtonPlay from "./ButtonPlay.svelte";
+  import ButtonSettings from "./ButtonSettings.svelte";
 
   const {
     questionLength,
@@ -41,9 +42,8 @@
 
   <div class="flex flex-col gap-4">
     <button onclick={tryAgain}>Try Again</button>
-    <!-- <button onclick={playDefault} class="p-2">Play (Default)</button> -->
     <ButtonPlay handler={playDefault}>Play (Default)</ButtonPlay>
-    <button onclick={goToSettings}>Settings</button>
+    <ButtonSettings handler={goToSettings} />
   </div>
 </div>
 

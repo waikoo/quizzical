@@ -1,13 +1,8 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import { gameState } from "../stores";
 
   const { children, handler }: { children: Snippet; handler: () => void } =
     $props();
-
-  function startGame() {
-    $gameState = "fetching";
-  }
 </script>
 
 <div class="w-full h-full relative">

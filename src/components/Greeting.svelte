@@ -7,6 +7,10 @@
   function startGame() {
     $gameState = "fetching";
   }
+
+  function showSettings() {
+    $gameState = "settings";
+  }
 </script>
 
 <div class="h-[100vh] grid place-items-center relative overflow-hidden">
@@ -20,7 +24,7 @@
 
     <div class="flex justify-center gap-8 flex-col">
       <ButtonPlay handler={startGame}>Play</ButtonPlay>
-      <ButtonSettings />
+      <ButtonSettings handler={showSettings} />
     </div>
   </div>
 </div>

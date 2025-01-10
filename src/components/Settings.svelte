@@ -52,6 +52,10 @@
       buildUrl: buildUrl,
     },
   ];
+
+  const startGame = () => {
+    $gameState = "fetching";
+  };
 </script>
 
 <div class="grid grid-cols-[auto_1fr_auto]">
@@ -71,7 +75,7 @@
 </section>
 
 <div class="fixed left-0 right-0 bottom-8 w-[80%] mx-auto">
-  <ButtonPlay />
+  <ButtonPlay handler={startGame}>Play</ButtonPlay>
 </div>
 
 {#if $gameState === "fetching"}
