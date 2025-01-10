@@ -23,7 +23,7 @@
 
     <div
       class="absolute top-0 right-0 bg-[#181505] h-[4px]"
-      style="width: {calculateWidth()}; transition: width 1s linear;"
+      style="width: {calculateWidth()};"
     ></div>
   </section>
 </article>
@@ -48,7 +48,6 @@
       rgba(255, 183, 1, 1) 60%,
       rgba(0, 124, 19, 1) 100%
     );
-    transition: width 0.1s linear;
   }
 
   div:nth-of-type(2) {
