@@ -9,8 +9,8 @@
 </script>
 
 <article
-  class="bg-[#180F05] p-[1px] w-[70%] rounded-[25px] mx-auto"
-  class:w-[90%]={category.name === "Category"}
+  class="bg-[#180F05] p-[1px] w-full rounded-[25px] mx-auto max-w-[216px]"
+  class:max-w-[281px]={category.name === "Category"}
 >
   <div class="flex flex-col gap-2 bg-[#180F05] py-4 px-8 rounded-[25px]">
     <h2 class="text-[#E46136] text-center text-[1.375rem]">{category.name}</h2>

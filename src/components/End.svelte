@@ -40,8 +40,10 @@
   <QuizzicalTitle hasBorder={true} />
 </div>
 
-<div class="grid place-items-center min-h-[100vh]">
-  <article class="text-center p-[1px] w-[90%] rounded-[25px] mx-auto">
+<div class="flex justify-center items-center min-h-[100vh]">
+  <article
+    class="text-center p-[1px] rounded-[25px] mx-auto col-start-2 col-end-3 w-[301px]"
+  >
     <div class="flex flex-col gap-8 bg-[#180F05] py-12 px-3 rounded-[25px]">
       <div>
         <h2 class="text-[#F56332] text-[2.25rem]">PERFECT SCORE!</h2>

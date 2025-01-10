@@ -74,7 +74,7 @@
   <DifficultySettings category={settingsCategory[3] as TSettings<string>} />
 </section>
 
-<div class="fixed left-0 right-0 bottom-8 w-[80%] mx-auto">
+<div class="fixed left-0 right-0 bottom-8 max-w-[273px] mx-auto">
   <ButtonPlay handler={startGame}>Play</ButtonPlay>
 </div>
 
