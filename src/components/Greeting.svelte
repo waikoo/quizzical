@@ -1,7 +1,12 @@
 <script lang="ts">
+  import { gameState } from "../stores";
   import ButtonPlay from "./ButtonPlay.svelte";
   import ButtonSettings from "./ButtonSettings.svelte";
   import QuizzicalTitle from "./QuizzicalTitle.svelte";
+
+  function startGame() {
+    $gameState = "fetching";
+  }
 </script>
 
 <div class="h-[100vh] grid place-items-center relative overflow-hidden">
@@ -14,7 +19,7 @@
     </h1>
 
     <div class="flex justify-center gap-8 flex-col">
-      <ButtonPlay />
+      <ButtonPlay handler={startGame}>Play</ButtonPlay>
       <ButtonSettings />
     </div>
   </div>
