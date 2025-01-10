@@ -55,3 +55,12 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+.selected {
+  background: linear-gradient(#e3bf00, black);
+  color: #180f05;
+}
+
+.selected div {
+  background: #e3bf00;
+}
