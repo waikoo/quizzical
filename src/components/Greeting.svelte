@@ -24,7 +24,7 @@
     </h1>
 
     <div
-      class="flex justify-center gap-8 md:gap-16 flex-col md:w-[450px] mx-auto"
+      class="flex justify-center gap-8 md:gap-16 flex-col w-full md:w-[450px] mx-auto"
     >
       <ButtonPlay handler={startGame}>Play</ButtonPlay>
       <ButtonSettings handler={showSettings} />
