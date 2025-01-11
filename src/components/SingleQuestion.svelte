@@ -44,7 +44,8 @@
   };
 
   const getAnswerClasses = (answer: { uuid: string; answer: string }) => {
-    const baseClasses = "border-[1px] w-full border-black p-2 rounded-full";
+    const baseClasses =
+      "border-[1px] w-full border-black p-2 xl:p-[1.5rem] rounded-full";
 
     if (showAnswer && answer.uuid === question.correct_answer.uuid) {
       return `${baseClasses} bg-[#386200] border-none`;
@@ -68,38 +69,44 @@
   };
 </script>
 
-<article class="pb-10">
-  <div class="mx-auto quizzicalContainer rounded-[40px] mt-2">
-    <p class="text-center text-[#E3BF00] p-2 block relative md:text-[1.25rem]">
-      {$gamePoints}/{questionLength}
-    </p>
-  </div>
-  <TimeoutBar {timer} />
-
-  <section
-    class="flex flex-col gap-8 text-[1.063rem] text-[#E6DEB6] mx-auto w-[90%]"
-  >
-    <div class="gradientBorder">
+<article
+  class="pb-10 mx-auto xl:pb-0 min-h-[100vh] grid place-items-center xl:pt-[8rem]"
+>
+  <div class="xl:w-[1059px] mx-auto">
+    <div class="mx-auto quizzicalContainer rounded-[40px] mt-2">
       <p
-        class="bg-[#180F05] p-8 px-10 rounded-full text-center akshar text-[1.063rem] md:text-[1.438rem]"
+        class="text-center text-[#E3BF00] p-2 block relative md:text-[1.25rem]"
       >
-        {decodeHtmlEntities(question.question)}
+        {$gamePoints}/{questionLength}
       </p>
     </div>
+    <TimeoutBar {timer} />
 
-    <div class="flex flex-col gap-4 text-[1.063rem] md:text-[1.438rem]">
-      {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
-        <div class={getContainerClasses(answer)}>
-          <button
-            class={getAnswerClasses(answer)}
-            onclick={() => handleClick(answer)}
-          >
-            {decodeHtmlEntities(answer.answer)}
-          </button>
-        </div>
-      {/each}
-    </div>
-  </section>
+    <section
+      class="flex flex-col gap-8 text-[1.063rem] text-[#E6DEB6] mx-auto w-[90%] mt-10"
+    >
+      <div class="gradientBorder">
+        <p
+          class="bg-[#180F05] p-8 px-10 xl:p-[3rem] rounded-full text-center akshar text-[1.063rem] md:text-[1.438rem]"
+        >
+          {decodeHtmlEntities(question.question)}
+        </p>
+      </div>
+
+      <div class="grid gap-4 xl:grid-cols-2 text-[1.063rem] md:text-[1.438rem]">
+        {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
+          <div class={getContainerClasses(answer)}>
+            <button
+              class={getAnswerClasses(answer)}
+              onclick={() => handleClick(answer)}
+            >
+              {decodeHtmlEntities(answer.answer)}
+            </button>
+          </div>
+        {/each}
+      </div>
+    </section>
+  </div>
 </article>
 
 <style>
@@ -112,7 +119,6 @@
 
   div > p {
     font-family: "Anton", sans-serif;
-    padding: 6px 20px;
     background: #180f05;
     border-radius: 40px;
   }
