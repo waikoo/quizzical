@@ -12,34 +12,34 @@
   });
 </script>
 
+{#snippet difficultyButton(
+  difficulty: string,
+  selectedCondition: boolean,
+  textContent: string,
+)}
+  <button
+    class="p-2 rounded-full settingsButton"
+    data-difficulty={difficulty}
+    data-name="difficulty"
+    class:selected={selectedCondition}
+    onclick={category.buildUrl}
+  >
+    <div class="rounded-full bg-[#180f05] text-[1.063rem] md:text-[1.438rem]">
+      {textContent}
+    </div>
+  </button>
+{/snippet}
+
 <SettingsCard {category}>
   <div class="text-[#E6DEB6] grid gap-4 md:grid-cols-2">
-    <button
-      class="p-2 rounded-full settingsButton"
-      data-difficulty="any"
-      data-name="difficulty"
-      class:selected={$currentDifficulty === null}
-      onclick={category.buildUrl}
-    >
-      <div class="rounded-full bg-[#180f05] text-[1.063px] md:text-[1.438rem]">
-        Any
-      </div>
-    </button>
+    {@render difficultyButton("any", $currentDifficulty === null, "Any")}
 
     {#each category.values as difficulty}
-      <button
-        class="p-2 rounded-full settingsButton"
-        data-difficulty={difficulty.toLowerCase()}
-        data-name="difficulty"
-        class:selected={$currentDifficulty === difficulty}
-        onclick={category.buildUrl}
-      >
-        <div
-          class="rounded-full bg-[#180f05] text-[1.063px] md:text-[1.438rem]"
-        >
-          {difficulty}
-        </div>
-      </button>
+      {@render difficultyButton(
+        difficulty.toLowerCase(),
+        $currentDifficulty === difficulty,
+        difficulty,
+      )}
     {/each}
   </div>
 </SettingsCard>
