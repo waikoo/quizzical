@@ -4,7 +4,7 @@
 
 <div class="w-full h-full relative isolate">
   <button
-    class="text-[#FFF3D4] text-[1.313rem] md:text-[2.125rem] tracking-[0.4px] md:tracking-[0.7px] bg-[#344666] shadow-md rounded-full mx-auto h-[80%] block w-[80%] hover:bg-[#9DA0EA] border-0 hover:text-[#1E1830]"
+    class="text-[#FFF3D4] text-[1.313rem] md:text-[2.125rem] xl:text-[1.75rem] tracking-[0.4px] md:tracking-[0.7px] bg-[#344666] shadow-md rounded-full mx-auto h-[80%] block w-[80%] hover:bg-[#9DA0EA] border-0 hover:text-[#1E1830]"
     onclick={handler}
     >SETTINGS
   </button>
