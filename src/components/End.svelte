@@ -42,17 +42,21 @@
 
 <div class="flex justify-center items-center min-h-[100vh]">
   <article
-    class="text-center p-[1px] rounded-[25px] mx-auto col-start-2 col-end-3 w-[301px]"
+    class="text-center p-[1px] rounded-[25px] mx-auto col-start-2 col-end-3 w-[301px] md:w-[494px]"
   >
-    <div class="flex flex-col gap-8 bg-[#180F05] py-12 px-3 rounded-[25px]">
+    <div
+      class="flex flex-col gap-8 md:gap-20 bg-[#180F05] py-12 px-3 rounded-[25px]"
+    >
       <div>
-        <h2 class="text-[#F56332] text-[2.25rem]">PERFECT SCORE!</h2>
-        <p class="text-[1.063rem] text-[#DBCD9E] uppercase">
+        <h2 class="text-[#F56332] text-[2.25rem] md:text-[3.313rem]">
+          PERFECT SCORE!
+        </h2>
+        <p class="text-[1.063rem] text-[#DBCD9E] uppercase md:text-[1.438rem]">
           {$gamePoints}/{questionLength} answers correct
         </p>
       </div>
 
-      <div class="flex flex-col gap-8 relative z-2">
+      <div class="flex flex-col gap-8 md:gap-14 relative z-2">
         <ButtonTryAgain handler={tryAgain}>Try Again</ButtonTryAgain>
         <ButtonPlay handler={playDefault}>Play (Default)</ButtonPlay>
         <ButtonSettings handler={goToSettings} />
