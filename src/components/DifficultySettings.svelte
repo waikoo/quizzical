@@ -31,7 +31,7 @@
 {/snippet}
 
 <SettingsCard {category}>
-  <div class="text-[#E6DEB6] grid gap-4 md:grid-cols-2">
+  <div class="text-[#E6DEB6] grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     {@render difficultyButton("any", $currentDifficulty === null, "Any")}
 
     {#each category.values as difficulty}

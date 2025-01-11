@@ -9,9 +9,11 @@
 </script>
 
 <article
-  class="bg-[#180F05] p-[1px] w-full rounded-[25px] mx-auto max-w-[216px] md:max-w-[606px]"
+  class="bg-[#180F05] p-[1px] w-full rounded-[25px] mx-auto max-w-[216px] md:max-w-[606px] xl:max-w-[566px]"
   class:max-w-[281px]={category.name === "Category"}
+  class:xl:max-w-[1158px]={category.name === "Category"}
   class:md:min-w-[424px]={category.name === "Difficulty"}
+  class:xl:min-w-[748px]={category.name === "Difficulty"}
 >
   <div class="flex flex-col gap-2 bg-[#180F05] py-4 px-8 rounded-[25px]">
     <h2 class="text-[#E46136] text-center text-[1.375rem] md:text-[1.75rem]">

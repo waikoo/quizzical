@@ -5,10 +5,10 @@
     ? "tracking-[-1px] text-[1.875rem] md:text-[3.063rem] md:tracking-[0.5-px]"
     : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-4.3px]";
   const qStyles = hasBorder
-    ? "text-[1.625rem] md:text-[2.563rem] xl:text-[7.25rem]"
+    ? "text-[1.625rem] md:text-[2.563rem] xl:text-[2.125rem]"
     : "text-[2.875rem] md:text-[5.938rem] xl:text-[6.25rem]";
   const aStyles = hasBorder
-    ? "py-0 px-2 bg-[#19151d] md:w-full md:shadow-md"
+    ? "py-0 px-2 bg-[#19151d] md:w-full md:shadow-md xl:text-[2.5rem]"
     : "";
 </script>
 
