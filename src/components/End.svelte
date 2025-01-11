@@ -5,6 +5,7 @@
   import ButtonSettings from "./ButtonSettings.svelte";
   import ButtonTryAgain from "./ButtonTryAgain.svelte";
   import QuizzicalTitle from "./QuizzicalTitle.svelte";
+  import FeedbackMessage from "./FeedbackMessage.svelte";
 
   const {
     questionLength,
@@ -48,9 +49,7 @@
       class="flex flex-col gap-8 md:gap-20 bg-[#180F05] py-12 px-3 rounded-[25px]"
     >
       <div>
-        <h2 class="text-[#F56332] text-[2.25rem] md:text-[3.313rem]">
-          PERFECT SCORE!
-        </h2>
+        <FeedbackMessage gamePoints={$gamePoints} {questionLength} />
         <p class="text-[1.063rem] text-[#DBCD9E] uppercase md:text-[1.438rem]">
           {$gamePoints}/{questionLength} answers correct
         </p>
@@ -66,7 +65,6 @@
 </div>
 
 <style>
-  h2,
   p {
     font-family: "Anton", sans-serif;
   }
