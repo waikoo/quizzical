@@ -57,23 +57,10 @@ body {
 }
 
 .selected {
-  background: linear-gradient(#e3bf00, black);
+  background: linear-gradient(#fce94e, black);
   color: #180f05;
 }
 
 .selected div {
   background: #e3bf00;
-}
-
-.settingsButton {
-  background: linear-gradient(#2b2b2b, black);
-  padding: 2px;
-  box-shadow: -3px -3px 10px -3px #3e2528;
-  text-transform: uppercase;
-  font-family: "Anton", sans-serif;
-}
-
-.settingsButton div {
-  box-shadow: 4px 4px 20px black;
-  padding: 8px 14px;
 }

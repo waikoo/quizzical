@@ -16,29 +16,33 @@
   selectedCondition: boolean,
   textContent: string,
   dataCategory: string | number,
+  customPadding: string,
 )}
   <button
-    class="p-2 rounded-full settingsButton"
+    class={`p-[3px] py-[4px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase shadow-[-3px_-3px_20px_-3px_#3E2528] rounded-full settingsButton `}
     data-name="category"
     data-category={dataCategory}
     class:selected={selectedCondition}
     onclick={category.buildUrl}
   >
-    <div class="rounded-full bg-[#180f05]">{textContent}</div>
+    <div class={`rounded-full bg-[#180f05] ${customPadding}`}>
+      {textContent}
+    </div>
   </button>
 {/snippet}
 
 <SettingsCard {category}>
   <div
-    class="text-[#E6DEB6] flex flex-wrap gap-3 justify-center text-[1.375rem] md:text-[1.75rem]"
+    class="text-[#E6DEB6] flex flex-wrap gap-[23px] justify-center text-[1.375rem] md:text-[1.75rem]"
   >
-    {@render categoryButton($currentCategory === null, "Any", "any")}
+    {@render categoryButton($currentCategory === null, "Any", "any", "px-10")}
 
     {#each category.values as categoryVal}
       {@render categoryButton(
         $currentCategory === categoryVal.id.toString(),
         categoryVal.name,
         categoryVal.id,
+        "px-4",
       )}
     {/each}
   </div>

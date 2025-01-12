@@ -87,9 +87,9 @@
   </section>
 {/if}
 
-<div class="grid grid-cols-[auto_1fr_auto]">
+<div class="grid grid-cols-[auto_1fr_auto] align-items-center">
   <div class="w-0 relative">
-    <a href="/">
+    <a href="/" class="">
       <ButtonBack />
     </a>
   </div>
@@ -97,7 +97,7 @@
 </div>
 
 <section
-  class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem] pt-20"
+  class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem] pt-8"
 >
   <TimerSettings category={settingsCategory[0] as TSettings<string>} />
   <QuestionSettings category={settingsCategory[1] as TSettings<number>} />

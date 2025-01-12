@@ -1,4 +1,4 @@
-<div class="xl:pt-10 pl-3">
+<div class="">
   <svg
     width="71"
     height="75"

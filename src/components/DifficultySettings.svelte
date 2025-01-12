@@ -18,7 +18,7 @@
   textContent: string,
 )}
   <button
-    class="p-2 rounded-full settingsButton"
+    class="p-[3px] font-['Anton'] rounded-full settingsButton bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase shadow-[-3px_-3px_20px_-3px_#3E2528]"
     data-difficulty={difficulty}
     data-name="difficulty"
     class:selected={selectedCondition}
