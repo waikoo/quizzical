@@ -14,7 +14,7 @@
 
 <div class={`${divStyles} md:w-fit md:mx-auto grid place-items-center`}>
   <a
-    class={`block ${aStyles} px-5 text-center rounded-full mx-auto cursor-pointer`}
+    class={`font-['Monoton'] block ${aStyles} px-5 text-center rounded-full mx-auto cursor-pointer max-w-fit`}
     href="/"
   >
     <span class={`text-[#FFA13D] ${qStyles}`}>Q</span>
@@ -32,10 +32,5 @@
 <style>
   a > span {
     text-shadow: 2px 2px 1px black;
-  }
-
-  a {
-    font-family: "Monoton", sans-serif;
-    max-width: fit-content;
   }
 </style>
