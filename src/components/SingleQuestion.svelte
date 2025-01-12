@@ -23,7 +23,17 @@
     setShowAnswer: (value: boolean) => void;
   } = $props();
 
+  let windowHeight = $state(window.innerHeight);
   let incorrectAnswerId = $state<string | null>(null);
+
+  $effect(() => {
+    const saveInnerHeight = () => (windowHeight = window.innerHeight);
+    window.addEventListener("resize", saveInnerHeight);
+
+    return () => {
+      window.removeEventListener("resize", saveInnerHeight);
+    };
+  });
 
   $effect(() => {
     if (question) {
@@ -57,25 +67,29 @@
   };
 
   const getContainerClasses = (answer: { uuid: string; answer: string }) => {
-    const baseClasses = "gradientBorder akshar p-[2px]";
+    const baseClasses =
+      "bg-gradient-to-b from-[#2b2b2b] to-black rounded-[40px] shadow-[4px_3px_10px_#2f2f2f] font-['Akshar'] p-[2px]";
 
     if (showAnswer && answer.uuid === question.correct_answer.uuid) {
-      return `${baseClasses} correctBg`;
+      return `${baseClasses} bg-gradient-to-b from-[#4e9731] to-[#132e09]`;
     }
     if (answer.uuid === incorrectAnswerId) {
-      return `${baseClasses} incorrectBg`;
+      return `${baseClasses} bg-gradient-to-b from-[#e13800] to-[#551500]`;
     }
     return baseClasses;
   };
 </script>
 
 <article
-  class="pb-10 mx-auto xl:pb-0 min-h-[100vh] grid place-items-center xl:pt-[8rem]"
+  class="fixed inset-0 margin-auto pb-10 mx-auto xl:pb-0 min-h-[calc(100vh] grid place-items-center xl:pt-20"
+  class:xl:pt-20={windowHeight < 615}
 >
-  <div class="xl:w-[1059px] mx-auto">
-    <div class="mx-auto quizzicalContainer rounded-[40px] mt-2">
+  <div class="xl:w-[1059px]">
+    <div
+      class="mx-auto w-fit py-[1px] px-[3px] bg-gradient-to-b from-[#2b2b2b] to-black shadow-[4px_4px_20px_black] rounded-[40px] mt-2"
+    >
       <p
-        class="text-center text-[#E3BF00] p-2 block relative md:text-[1.25rem]"
+        class="text-center bg-[#180f05] rounded-[40px] text-[#E3BF00] p-2 block relative md:text-[1.25rem] font-['Anton']"
       >
         {$gamePoints}/{questionLength}
       </p>
@@ -85,9 +99,11 @@
     <section
       class="flex flex-col gap-8 text-[1.063rem] text-[#E6DEB6] mx-auto w-[90%] mt-10"
     >
-      <div class="gradientBorder">
+      <div
+        class="bg-gradient-to-b from-[#2b2b2b] to-black rounded-[40px] shadow-[4px_3px_10px_#2f2f2f]"
+      >
         <p
-          class="bg-[#180F05] p-8 px-10 xl:p-[3rem] rounded-full text-center akshar text-[1.063rem] md:text-[1.438rem]"
+          class="bg-[#180F05] p-8 px-10 xl:p-[3rem] rounded-full text-center font-['Akshar'] text-[1.063rem] md:text-[1.438rem]"
         >
           {decodeHtmlEntities(question.question)}
         </p>
@@ -110,29 +126,6 @@
 </article>
 
 <style>
-  .quizzicalContainer {
-    width: fit-content;
-    padding: 1px 3px;
-    background: linear-gradient(#2b2b2b, black);
-    box-shadow: 4px 4px 20px #000000;
-  }
-
-  div > p {
-    font-family: "Anton", sans-serif;
-    background: #180f05;
-    border-radius: 40px;
-  }
-
-  .gradientBorder {
-    background: linear-gradient(#2b2b2b, black);
-    border-radius: 40px;
-    box-shadow: 4px 3px 10px #2f2f2f;
-  }
-
-  .akshar {
-    font-family: "Akshar", sans-serif;
-  }
-
   .correctBg {
     background: linear-gradient(#4e9731, #132e09);
   }

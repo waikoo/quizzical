@@ -70,9 +70,11 @@
   startCountdown();
 </script>
 
-<QuizzicalTitle hasBorder={true} />
+<div class="pt-2">
+  <QuizzicalTitle hasBorder={true} />
+</div>
 {#if gameQuestions.length === 0}
-  <p class="text-yellow-400 text-bold text-center">
+  <p class="text-[#e3bf00] text-bold text-center">
     Something went wrong... Please refresh and try again.
   </p>
 {:else}

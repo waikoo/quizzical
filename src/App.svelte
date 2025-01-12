@@ -44,7 +44,7 @@
   });
 </script>
 
-<main>
+<main class="min-h-[100vh]">
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}
