@@ -2,8 +2,8 @@
   let { hasBorder }: { hasBorder: boolean } = $props();
 
   const divStyles = hasBorder
-    ? "tracking-[-1px] text-[1.875rem] md:text-[3.063rem] md:tracking-[0.5-px] xl:fixed xl:left-0 xl:right-0"
-    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-4.3px]";
+    ? "tracking-[-1px] text-[1.875rem] md:text-[3.063rem] md:tracking-[0.5-px] xl:fixed xl:left-0 xl:right-0 xl:pt-14"
+    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-4.3px] xl:mt-[-25px]";
   const qStyles = hasBorder
     ? "text-[1.625rem] md:text-[2.563rem] xl:text-[2.125rem]"
     : "text-[2.875rem] md:text-[5.938rem] xl:text-[6.25rem]";
@@ -12,9 +12,9 @@
     : "";
 </script>
 
-<div class={`${divStyles} md:w-fit md:mx-auto xl:pt-14 `}>
+<div class={`${divStyles} md:w-fit md:mx-auto`}>
   <a
-    class={`block ${aStyles} text-center rounded-full mx-auto cursor-pointer`}
+    class={`block ${aStyles} xl:tracking-[-6.6px] text-center rounded-full mx-auto cursor-pointer`}
     href="/"
   >
     <span class={`text-[#FFA13D] ${qStyles}`}>Q</span>
