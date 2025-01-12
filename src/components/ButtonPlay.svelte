@@ -8,7 +8,7 @@
 <div
   class="bg-gradient-to-b from-[#F66231] to-[#AF2C00] p-[5px] rounded-full shadow-[3px_3px_10px_#16140a]"
 >
-  <div class="bg-[#DCC600] rounded-full p-[4px]">
+  <div class="bg-[#DCC600] rounded-full p-[3px]">
     <div class="shadow-[0_0_2px_#342905] rounded-full">
       <div
         class="bg-gradient-to-b from-[#E66E46] to-[#994F36] rounded-full p-[2px] shadow-[3px_3px_10px_#766a00]"

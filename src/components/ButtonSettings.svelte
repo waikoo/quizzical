@@ -3,7 +3,7 @@
 </script>
 
 <div class="bg-gradient-to-b from-[#637AAA] to-[#283144] rounded-full p-[5px]">
-  <div class="bg-[#344666] rounded-full p-[4px]">
+  <div class="bg-[#344666] rounded-full p-[3px]">
     <div class="shadow-[3px_3px_10px_#16140A] rounded-full">
       <div
         class="bg-gradient-to-b from-[#637aaa] to-[#283144] p-[2px] rounded-full"
