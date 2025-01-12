@@ -106,7 +106,7 @@
 </section>
 
 <div
-  class="fixed left-0 right-0 bottom-8 md:bottom-16 max-w-[273px] md:max-w-[265px] xl:max-w-[281px] mx-auto"
+  class="fixed left-0 right-0 bottom-8 md:bottom-12 max-w-[273px] md:max-w-[90%] xl:max-w-[281px] mx-auto"
 >
   <ButtonPlay handler={startGame}>Play</ButtonPlay>
 </div>
