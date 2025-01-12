@@ -10,8 +10,12 @@
   import "./app.css";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
-  let isFetchingError = $state<boolean>(false);
+  let noQuestionsMatchSettings = $state<boolean>(false);
   let hasFetchedQuestions = false;
+
+  const closePopup = () => {
+    noQuestionsMatchSettings = false;
+  };
 
   $effect(() => {
     if ($gameState === "fetching" && !hasFetchedQuestions) {
@@ -25,13 +29,15 @@
           gameQuestions = addUuids(await fetchQuestions($url));
 
           if (gameQuestions.length === 0) {
-            isFetchingError = true;
+            noQuestionsMatchSettings = true;
+            $gameState = "settings";
+            hasFetchedQuestions = false;
           } else {
             $gameState = "playing";
           }
         } catch (error) {
           console.error("Error fetching questions:", error);
-          isFetchingError = true;
+          noQuestionsMatchSettings = true;
         }
       })();
     }
@@ -42,7 +48,7 @@
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}
-    <Settings {url} {gameSpeed} />
+    <Settings {url} {noQuestionsMatchSettings} {closePopup} />
   {:else if $gameState === "playing"}
     <Game {gameQuestions} {gameSpeed} {gameState} {gamePoints} />
   {:else if $gameState === "end"}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { url as storeUrl } from "../stores";
   import { get, type Writable } from "svelte/store";
   import CategorySettings from "./CategorySettings.svelte";
   import QuestionSettings from "./QuestionSettings.svelte";
@@ -11,8 +12,15 @@
   import { categories } from "../categories";
   import ButtonBack from "./ButtonBack.svelte";
 
-  let { url }: { url: Writable<string>; gameSpeed: Writable<GameSpeed> } =
-    $props();
+  let {
+    url,
+    closePopup,
+    noQuestionsMatchSettings,
+  }: {
+    url: Writable<string>;
+    closePopup: () => void;
+    noQuestionsMatchSettings: boolean;
+  } = $props();
   type UrlKey = "category" | "amount" | "difficulty" | "type";
   type UrlValue = number | string;
 
@@ -56,7 +64,28 @@
   const startGame = () => {
     $gameState = "fetching";
   };
+
+  const getParamFor = (name: string) => {
+    new URL($url).searchParams.get(name);
+  };
 </script>
+
+{#if noQuestionsMatchSettings}
+  <section class="fixed inset-0 grid place-items-center bg-black/50 z-[1]">
+    <div class="bg-black text-white text-[3rem]">
+      <button class="text-right block" onclick={closePopup}>X</button>
+      <p>
+        Couldn't get {getParamFor("amount")} questions in category
+        {getParamFor("category")} of difficulty {getParamFor("difficulty")}. Try
+        a different combination.
+      </p>
+      <button
+        class="block bg-white text-black px-10 mx-auto"
+        onclick={closePopup}>OK</button
+      >
+    </div>
+  </section>
+{/if}
 
 <div class="grid grid-cols-[auto_1fr_auto]">
   <div class="w-0 relative">

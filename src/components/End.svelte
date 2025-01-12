@@ -19,10 +19,9 @@
     url: Writable<string>;
   } = $props();
 
-  const goToSettings = () => {
+  const tryAgain = () => {
     $gamePoints = 0;
-    $url = baseUrl;
-    $gameState = "settings";
+    $gameState = "fetching";
   };
 
   const playDefault = () => {
@@ -31,9 +30,10 @@
     $gameState = "fetching";
   };
 
-  const tryAgain = () => {
+  const goToSettings = () => {
     $gamePoints = 0;
-    $gameState = "fetching";
+    $url = baseUrl;
+    $gameState = "settings";
   };
 </script>
 
@@ -50,7 +50,9 @@
     >
       <div>
         <FeedbackMessage gamePoints={$gamePoints} {questionLength} />
-        <p class="text-[1.063rem] text-[#DBCD9E] uppercase md:text-[1.438rem]">
+        <p
+          class="text-[1.063rem] text-[#DBCD9E] uppercase md:text-[1.438rem] xl:text-[1.25rem]"
+        >
           {$gamePoints}/{questionLength} answers correct
         </p>
       </div>

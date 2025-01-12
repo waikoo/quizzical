@@ -14,7 +14,7 @@
   };
 </script>
 
-<h2 class="text-[#F56332] text-[2.25rem] md:text-[3.313rem]">
+<h2 class="text-[#F56332] text-[2.25rem] md:text-[3.313rem] xl:text-[3.125rem]">
   {#if gamePoints === questionLength && gamePoints > 0}
     {getRandomMessage(perfect)}
   {:else if gamePoints < questionLength && gamePoints >= 1}

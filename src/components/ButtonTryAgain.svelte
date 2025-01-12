@@ -1,13 +1,15 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import { url } from "../stores";
 
   const { children, handler }: { children: Snippet; handler: () => void } =
     $props();
+  console.log($url);
 </script>
 
 <div class="w-full h-full relative isolate">
   <button
-    class="text-[1.313rem] md:text-[2.125rem] tracking-[0.4px] uppercase rounded-full mx-auto block h-[36px] w-[79%] md:h-[65px]"
+    class="text-[1.313rem] md:text-[2.125rem] xl:text-[1.75rem] tracking-[0.4px] uppercase rounded-full mx-auto block h-[36px] w-[79%] md:h-[65px] xl:h-[53px]"
     onclick={handler}
   >
     <div
