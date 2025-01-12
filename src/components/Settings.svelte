@@ -96,7 +96,9 @@
   <QuizzicalTitle hasBorder={true} />
 </div>
 
-<section class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem]">
+<section
+  class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem] pt-20"
+>
   <TimerSettings category={settingsCategory[0] as TSettings<string>} />
   <QuestionSettings category={settingsCategory[1] as TSettings<number>} />
   <CategorySettings category={settingsCategory[2] as TSettings<TCategory>} />
@@ -104,7 +106,7 @@
 </section>
 
 <div
-  class="fixed left-0 right-0 bottom-8 md:bottom-16 max-w-[273px] md:max-w-full xl:max-w-[281px] mx-auto"
+  class="fixed left-0 right-0 bottom-8 md:bottom-16 max-w-[273px] md:max-w-[265px] xl:max-w-[281px] mx-auto"
 >
   <ButtonPlay handler={startGame}>Play</ButtonPlay>
 </div>

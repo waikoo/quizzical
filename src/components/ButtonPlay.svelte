@@ -7,7 +7,7 @@
 
 <div class="w-full h-full relative isolate">
   <button
-    class="text-[#AD2B00] text-[1.313rem] md:text-[2.125rem] xl:text-[1.75rem] tracking-[0.4px] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[80%] hover:bg-[#F55C28] hover:text-[#3F1001] uppercase"
+    class="text-[#AD2B00] text-[1.313rem] md:text-[2.125rem] xl:text-[1.75rem] tracking-[0.4px] bg-[#FFF1D4] shadow-md rounded-full mx-auto h-[80%] border-2 border-[#E66E46] block w-[90%] hover:bg-[#F55C28] hover:text-[#3F1001] uppercase"
     onclick={handler}
     >{@render children()}
   </button>
@@ -17,7 +17,7 @@
   button::before {
     content: "";
     position: absolute;
-    width: 82%;
+    width: 95%;
     inset: 0;
     margin: auto;
     height: 120%;
@@ -31,7 +31,7 @@
   button::after {
     content: "";
     position: absolute;
-    width: 85%;
+    width: 99%;
     inset: 0;
     margin: auto;
     height: 150%;
