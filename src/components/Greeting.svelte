@@ -14,7 +14,7 @@
 </script>
 
 <div class="h-[100vh] grid place-items-center relative overflow-hidden">
-  <div class="flex flex-col gap-[30px] xl:gap-[40px]">
+  <div class="flex flex-col gap-[30px] md:gap-[84px] xl:gap-[40px]">
     <h1 class="text-bold text-center">
       <span
         class="text-[#E46136] text-[1.563rem] md:text-[2.188rem] tracking-[8.8px] md:tracking-[19.3px]"
@@ -24,7 +24,7 @@
     </h1>
 
     <div
-      class="flex justify-center gap-8 md:gap-16 xl:gap-[30px] flex-col w-full md:w-[450px] xl:max-w-[281px] mx-auto"
+      class="flex justify-center gap-8 md:[30px] flex-col w-full md:w-[450px] xl:max-w-[281px] mx-auto"
     >
       <ButtonPlay handler={startGame}>Play</ButtonPlay>
       <ButtonSettings handler={showSettings} />

@@ -3,7 +3,7 @@
 
   const divStyles = hasBorder
     ? "tracking-[-1px] text-[1.875rem] md:text-[3.063rem] md:tracking-[0.5-px] rounded-full "
-    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-4.3px] xl:mt-[-25px]";
+    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-7.3px] md:mt-[-7px] xl:mt-[-25px]";
   const qStyles = hasBorder
     ? "text-[1.625rem] md:text-[2.563rem] xl:text-[2.125rem]"
     : "text-[2.875rem] md:text-[5.938rem] xl:text-[6.25rem]";
