@@ -95,7 +95,7 @@
 </div>
 
 <section
-  class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem] pt-8"
+  class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem] pt-[85px]"
 >
   <TimerSettings category={settingsCategory[0] as TSettings<string>} />
   <QuestionSettings category={settingsCategory[1] as TSettings<number>} />

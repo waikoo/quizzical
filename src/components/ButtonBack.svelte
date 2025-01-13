@@ -1,4 +1,4 @@
-<div class="">
+<div class="ml-[20px]">
   <svg
     width="71"
     height="75"

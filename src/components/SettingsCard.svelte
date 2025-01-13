@@ -9,16 +9,18 @@
 </script>
 
 <article
-  class="bg-[#180F05] p-[1px] w-full rounded-[25px] mx-auto max-w-[216px] md:max-w-[606px] xl:min-w-[566px] pb-4"
+  class="bg-gradient-to-b from-[#373636] to-black shadow-[0_15px_50px_#180f05] p-[2px] w-full rounded-[25px] mx-auto max-w-[216px] md:max-w-[606px] xl:min-w-[566px]"
   class:max-w-[281px]={category.name === "Category"}
   class:xl:max-w-[1158px]={category.name === "Category"}
   class:md:min-w-[424px]={category.name === "Difficulty"}
   class:xl:min-w-[748px]={category.name === "Difficulty"}
 >
   <div
-    class="flex flex-col gap-2 xl:gap-[20px_30px] bg-[#180F05] py-4 px-8 xl:px-[25px] rounded-[25px]"
+    class="flex flex-col gap-2 xl:gap-[20px_30px] bg-[#180F05] py-4 px-8 xl:px-[25px] rounded-[25px] shadow-[0_0_2px_1px_black]"
   >
-    <h2 class="text-[#E46136] text-center text-[1.375rem] md:text-[1.75rem]">
+    <h2
+      class="font-['Agdasima'] text-[#E46136] text-center text-[1.375rem] md:text-[1.75rem]"
+    >
       {category.name}
     </h2>
 
@@ -27,19 +29,6 @@
 </article>
 
 <style>
-  h2 {
-    font-family: "Agdasima", sans-serif;
-  }
-
-  article {
-    background: linear-gradient(#373636, black);
-    box-shadow: 0px 0px 2px 1px black;
-  }
-
-  article > div {
-    box-shadow: 0px 15px 50px #180f05;
-  }
-
   @media (min-width: 768px) {
     article:last-of-type {
       max-width: 424px;

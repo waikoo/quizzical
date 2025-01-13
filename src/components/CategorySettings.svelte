@@ -19,13 +19,15 @@
   customPadding: string,
 )}
   <button
-    class={`p-[3px] py-[4px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase shadow-[-3px_-3px_20px_-3px_#3E2528] rounded-full settingsButton `}
+    class={`p-[3px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase shadow-[-3px_-3px_20px_-3px_#3E2528] rounded-full settingsButton `}
     data-name="category"
     data-category={dataCategory}
     class:selected={selectedCondition}
     onclick={category.buildUrl}
   >
-    <div class={`rounded-full bg-[#180f05] ${customPadding}`}>
+    <div
+      class={`rounded-full py-[4px] bg-[#180f05] flex justify-center items-center ${customPadding}`}
+    >
       {textContent}
     </div>
   </button>
@@ -33,7 +35,7 @@
 
 <SettingsCard {category}>
   <div
-    class="text-[#E6DEB6] flex flex-wrap gap-[23px] justify-center text-[1.375rem] md:text-[1.75rem]"
+    class="text-[#E6DEB6] flex flex-wrap gap-[23px] justify-center text-[1.375rem] md:text-[1.438rem]"
   >
     {@render categoryButton($currentCategory === null, "Any", "any", "px-10")}
 

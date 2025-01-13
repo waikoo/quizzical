@@ -24,7 +24,9 @@
     class:selected={selectedCondition}
     onclick={category.buildUrl}
   >
-    <div class="rounded-full bg-[#180f05] text-[1.063rem] md:text-[1.438rem]">
+    <div
+      class="rounded-full py-[4px] bg-[#180f05] text-[1.063rem] md:text-[1.438rem] flex justify-center items-center"
+    >
       {textContent}
     </div>
   </button>
