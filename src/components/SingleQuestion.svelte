@@ -86,7 +86,7 @@
   class="fixed inset-0 margin-auto pb-10 mx-auto xl:pb-0 min-h-[calc(100vh] grid place-items-center xl:pt-20"
   class:xl:pt-20={windowHeight < 615}
 >
-  <div class="xl:w-[1059px]">
+  <div class="md:w-[607px] xl:w-[1059px]">
     <div
       class="mx-auto w-fit py-[1px] px-[3px] bg-gradient-to-b from-[#2b2b2b] to-black shadow-[4px_4px_20px_black] rounded-[40px] mt-2"
     >
@@ -126,13 +126,3 @@
     </section>
   </div>
 </article>
-
-<style>
-  .correctBg {
-    background: linear-gradient(#4e9731, #132e09);
-  }
-
-  .incorrectBg {
-    background: linear-gradient(#e13800, #551500);
-  }
-</style>
