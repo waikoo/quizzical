@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { url as storeUrl } from "../stores";
   import { get, type Writable } from "svelte/store";
   import CategorySettings from "./CategorySettings.svelte";
   import QuestionSettings from "./QuestionSettings.svelte";
   import DifficultySettings from "./DifficultySettings.svelte";
-  import { gameState, type GameSpeed } from "../stores";
+  import { gameState } from "../stores";
   import TimerSettings from "./TimerSettings.svelte";
   import ButtonPlay from "./ButtonPlay.svelte";
   import QuizzicalTitle from "./QuizzicalTitle.svelte";
