@@ -73,7 +73,7 @@
   startCountdown();
 </script>
 
-<div class="pt-2 relative z-[1]">
+<div class="mt-1 pt-1 relative z-[1] md:mt-[23px]">
   <QuizzicalTitle hasBorder={true} />
 </div>
 {#if gameQuestions.length === 0}

@@ -37,7 +37,7 @@
   };
 </script>
 
-<div class="fixed top-0 left-0 right-0">
+<div class="fixed top-[23px] left-0 right-0">
   <QuizzicalTitle hasBorder={true} />
 </div>
 
