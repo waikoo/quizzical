@@ -8,7 +8,7 @@
     ? "text-[1.625rem] md:text-[2rem] xl:text-[2.125rem]"
     : "text-[2.875rem] md:text-[5.938rem] xl:text-[6.25rem]";
   const aStyles = hasBorder
-    ? "py-0 px-2 bg-[#19151d] md:w-full md:shadow-md md:text-[2.438rem] xl:text-[2.5rem] tracking-[-2px] border-[#19151D] border-[2px]"
+    ? "py-0 px-[10px] bg-[#19151d] md:w-full md:shadow-md md:text-[2.438rem] xl:text-[2.5rem] tracking-[-2px] border-[#19151D] border-[2px]"
     : "xl:tracking-[-6.6px] ";
 </script>
 
