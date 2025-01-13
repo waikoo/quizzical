@@ -87,7 +87,7 @@
   </section>
 {/if}
 
-<div class="grid grid-cols-[1fr_2fr_1fr] items-center">
+<div class="grid grid-cols-[1fr_2fr_1fr] items-center md:mt-[20px]">
   <a href="/" class="mt-1 pt-1">
     <ButtonBack />
   </a>
