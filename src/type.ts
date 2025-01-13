@@ -12,6 +12,7 @@ const triviaQuestionSchema = z.object({
 export type TriviaQuestion = z.infer<typeof triviaQuestionSchema>;
 
 const triviaQuestionWithUuid = z.object({
+  index: z.number(),
   category: z.string(),
   type: z.enum(["multiple", "boolean"]),
   difficulty: z.enum(["easy", "medium", "hard"]),

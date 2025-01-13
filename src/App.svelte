@@ -7,6 +7,7 @@
   import Greeting from "./components/Greeting.svelte";
   import addUuids from "./utils/addUuids";
   import fetchQuestions from "./utils/fetchQuestions";
+  import numberQuestions from "./utils/numberQuestions";
   import "./app.css";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
@@ -26,7 +27,7 @@
             // play with a default of 10 questions & of multiple choice
             $url = "https://opentdb.com/api.php?amount=10&type=multiple";
           }
-          gameQuestions = addUuids(await fetchQuestions($url));
+          gameQuestions = numberQuestions(addUuids(await fetchQuestions($url)));
 
           if (gameQuestions.length === 0) {
             noQuestionsMatchSettings = true;

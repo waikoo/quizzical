@@ -4,6 +4,7 @@
   import TimeoutBar from "./TimeoutBar.svelte";
   import QuizzicalQuestion from "./QuizzicalQuestion.svelte";
   import QuizzicalAnswers from "./QuizzicalAnswers.svelte";
+  import Pill from "./Pill.svelte";
 
   let {
     question,
@@ -49,14 +50,10 @@
   class:xl:pt-20={windowHeight < 615}
 >
   <div class="md:w-[607px] xl:w-[1059px]">
-    <div
-      class="mx-auto w-fit py-[1px] px-[3px] bg-gradient-to-b from-[#2b2b2b] to-black shadow-[4px_4px_20px_black] rounded-[40px] mt-2"
-    >
-      <p
-        class="text-center bg-[#180f05] rounded-[40px] text-[#E3BF00] p-2 block relative md:text-[1.25rem] font-['Anton']"
+    <div class="flex justify-between items-center w-[90%] mx-auto">
+      <Pill textColorClass="text-[#E3BF00]">{$gamePoints}/{questionLength}</Pill
       >
-        {$gamePoints}/{questionLength}
-      </p>
+      <Pill textColorClass="text-[#E46136]">Question {question.index}</Pill>
     </div>
     <TimeoutBar {timer} {hasAnswered} />
 
