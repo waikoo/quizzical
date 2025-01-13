@@ -23,22 +23,21 @@
       (async () => {
         try {
           if ($url === baseUrl) {
-            // play with a default of 10 questions
-            $url = "https://opentdb.com/api.php?amount=10";
+            // play with a default of 10 questions & of multiple choice
+            $url = "https://opentdb.com/api.php?amount=10&type=multiple";
           }
           gameQuestions = addUuids(await fetchQuestions($url));
 
           if (gameQuestions.length === 0) {
             noQuestionsMatchSettings = true;
             $gameState = "settings";
-            hasFetchedQuestions = false;
           } else {
             $gameState = "playing";
           }
         } catch (error) {
-          console.error("Error fetching questions:", error);
           noQuestionsMatchSettings = true;
         }
+        hasFetchedQuestions = false;
       })();
     }
   });
