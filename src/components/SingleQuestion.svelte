@@ -11,6 +11,7 @@
     gamePoints,
     questionLength,
     showAnswer,
+    hasAnswered,
     setHasAnswered,
     setShowAnswer,
   }: {
@@ -19,6 +20,7 @@
     gamePoints: Writable<number>;
     questionLength: number;
     showAnswer: boolean;
+    hasAnswered: boolean;
     setHasAnswered: (value: boolean) => void;
     setShowAnswer: (value: boolean) => void;
   } = $props();
@@ -94,7 +96,7 @@
         {$gamePoints}/{questionLength}
       </p>
     </div>
-    <TimeoutBar {timer} />
+    <TimeoutBar {timer} {hasAnswered} />
 
     <section
       class="flex flex-col gap-8 text-[1.063rem] text-[#E6DEB6] mx-auto w-[90%] mt-10"

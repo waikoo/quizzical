@@ -1,15 +1,23 @@
 <script lang="ts">
   import { gameSpeed } from "../stores";
 
-  let { timer }: { timer: number } = $props();
+  let { timer, hasAnswered }: { timer: number; hasAnswered: boolean } =
+    $props();
   const totalTime = {
     slow: 60,
     medium: 30,
     fast: 10,
   };
 
+  let lastWidth = "0%";
+
   const calculateWidth = () => {
-    return `${((totalTime[$gameSpeed] - timer) / totalTime[$gameSpeed]) * 100}%`;
+    if (hasAnswered) {
+      return lastWidth;
+    }
+    const newWidth = `${((totalTime[$gameSpeed] - timer) / totalTime[$gameSpeed]) * 100}%`;
+    lastWidth = newWidth;
+    return newWidth;
   };
 </script>
 

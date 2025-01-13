@@ -29,7 +29,8 @@
   let timer = $state(questionTimer);
 
   const startCountdown = () => {
-    const SHOW_RIGHT_ANSWER_FOR_MS = 1200;
+    const SHOW_RIGHT_ANSWER_FOR_MS = 1500;
+
     const intervalId = setInterval(() => {
       if (timer > 0) {
         timer--;
@@ -43,9 +44,11 @@
             moveToNextQuestion();
           }, SHOW_RIGHT_ANSWER_FOR_MS);
         } else {
-          setShowAnswer(true);
           setTimeout(() => {
-            moveToNextQuestion();
+            setShowAnswer(true);
+            setTimeout(() => {
+              moveToNextQuestion();
+            }, SHOW_RIGHT_ANSWER_FOR_MS);
           }, SHOW_RIGHT_ANSWER_FOR_MS);
         }
       }
@@ -85,6 +88,7 @@
     {setHasAnswered}
     {setShowAnswer}
     {showAnswer}
+    {hasAnswered}
     questionLength={gameQuestions.length}
   />
 {/if}
