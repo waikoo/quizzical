@@ -49,7 +49,7 @@
   class="fixed inset-0 margin-auto pb-10 mx-auto xl:pb-0 min-h-[calc(100vh] grid place-items-center xl:pt-20"
   class:xl:pt-20={windowHeight < 615}
 >
-  <div class="md:w-[607px] xl:w-[1059px]">
+  <div class="w-[18.125rem] md:w-[607px] xl:w-[1059px]">
     <div class="flex justify-between items-center w-[90%] mx-auto">
       <Pill textColorClass="text-[#E3BF00]">{$gamePoints}/{questionLength}</Pill
       >
