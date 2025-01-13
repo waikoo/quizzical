@@ -41,9 +41,16 @@
       })();
     }
   });
+
+  $effect(() => {
+    // avoids overstretching the svg bg
+    if ($gameState === "settings") {
+      document.body.style.backgroundAttachment = "fixed";
+    }
+  });
 </script>
 
-<main class="min-h-[100dvh]">
+<main>
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}
@@ -56,6 +63,3 @@
     {null}
   {/if}
 </main>
-
-<style>
-</style>
