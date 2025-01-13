@@ -50,10 +50,19 @@
   class:xl:pt-20={windowHeight < 615}
 >
   <div class="w-[18.125rem] md:w-[607px] xl:w-[1059px]">
-    <div class="flex justify-between items-center w-[90%] mx-auto">
-      <Pill textColorClass="text-[#E3BF00]">{$gamePoints}/{questionLength}</Pill
+    <div
+      class="flex justify-between items-center xl:grid-cols-3 xl:grid w-[90%] mx-auto"
+    >
+      <Pill
+        textColorClass="text-[#E3BF00]"
+        extraClass="col-start-2 col-end-3 justify-self-center"
+        >{$gamePoints}/{questionLength}</Pill
       >
-      <Pill textColorClass="text-[#E46136]">Question {question.index}</Pill>
+      <Pill
+        textColorClass="text-[#E46136]"
+        extraClass="col-start-3 col-end-4 justify-self-end"
+        >Question {question.index}</Pill
+      >
     </div>
     <TimeoutBar {timer} {hasAnswered} />
 
