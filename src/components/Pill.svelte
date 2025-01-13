@@ -8,7 +8,7 @@
 </script>
 
 <div
-  class="py-[1px] px-[3px] bg-gradient-to-b from-[#2b2b2b] to-black shadow-[4px_4px_20px_black] rounded-[40px] mt-2"
+  class="py-[1px] px-[3px] bg-gradient-to-b from-[#2b2b2b] to-black shadow-[4px_4px_20px_black] rounded-[40px] mt-2 uppercase"
 >
   <p
     class={`${textColorClass} text-center bg-[#180f05] rounded-[40px] p-2 block relative md:text-[1.25rem] font-['Anton']`}
