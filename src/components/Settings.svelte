@@ -87,12 +87,10 @@
   </section>
 {/if}
 
-<div class="grid grid-cols-[auto_1fr_auto] align-items-center">
-  <div class="w-0 relative">
-    <a href="/" class="">
-      <ButtonBack />
-    </a>
-  </div>
+<div class="grid grid-cols-[1fr_2fr_1fr] items-center">
+  <a href="/" class="mt-1 pt-1">
+    <ButtonBack />
+  </a>
   <QuizzicalTitle hasBorder={true} />
 </div>
 
