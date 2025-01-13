@@ -13,7 +13,7 @@
   }
 </script>
 
-<div class="h-[100vh] grid place-items-center relative overflow-hidden">
+<div class="min-h-[100dvh] grid place-items-center relative overflow-hidden">
   <div class="flex flex-col gap-[30px] md:gap-[84px] xl:gap-[40px]">
     <h1 class="text-bold text-center">
       <span
