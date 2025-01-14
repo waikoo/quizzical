@@ -9,6 +9,7 @@
   import fetchQuestions from "./utils/fetchQuestions";
   import numberQuestions from "./utils/numberQuestions";
   import "./app.css";
+  import Loader from "./components/Loader.svelte";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
   let noQuestionsMatchSettings = $state<boolean>(false);
@@ -56,6 +57,10 @@
     <Greeting />
   {:else if $gameState === "settings"}
     <Settings {url} {noQuestionsMatchSettings} {closePopup} />
+  {:else if $gameState === "fetching"}
+    <div class="grid place-items-center h-screen">
+      <Loader />
+    </div>
   {:else if $gameState === "playing"}
     <Game {gameQuestions} {gameSpeed} {gameState} {gamePoints} />
   {:else if $gameState === "end"}
