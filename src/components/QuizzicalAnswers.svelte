@@ -62,7 +62,7 @@
   };
 </script>
 
-<div class="grid gap-4 xl:grid-cols-2 text-[1.063rem] md:text-[1.438rem]">
+<div class="grid gap-[12px] xl:grid-cols-2 text-[1.063rem] md:text-[1.438rem]">
   {#each randomizeAnswers(question.correct_answer, question.incorrect_answers) as answer}
     <div class={getContainerClasses(answer)}>
       <button

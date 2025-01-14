@@ -85,7 +85,7 @@
 {/if}
 
 <section
-  class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[7.5rem] md:pb-[12rem] pt-[85px]"
+  class="flex flex-col gap-[25px] md:gap-[50px] xl:gap-[3.125rem] pb-[7.5rem] md:pb-[12rem] pt-[85px]"
 >
   <TimerSettings category={settingsCategory[0] as TSettings<string>} />
   <QuestionSettings category={settingsCategory[1] as TSettings<number>} />
@@ -98,7 +98,3 @@
 >
   <ButtonPlay handler={startGame}>Play</ButtonPlay>
 </div>
-
-{#if $gameState === "fetching"}
-  <span class="text-red-300 relative z-2">Loading questions...</span>
-{/if}
