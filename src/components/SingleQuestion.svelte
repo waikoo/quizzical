@@ -46,7 +46,7 @@
 </script>
 
 <article
-  class="fixed inset-0 margin-auto pt-20 pb-10 mx-auto xl:pb-0 min-h-[calc(100vh] grid place-items-center xl:pt-20"
+  class="fixed inset-0 margin-auto pt-20 pb-10 mx-auto xl:pb-0 grid place-items-center xl:pt-20"
   class:xl:pt-20={windowHeight < 615}
 >
   <div class="w-[18.125rem] md:w-[607px] xl:w-[1059px]">
