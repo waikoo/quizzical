@@ -50,9 +50,6 @@
     if ($gameState === "settings") {
       document.body.style.backgroundAttachment = "fixed";
     }
-    if ($gameState === "playing" || $gameState === "greeting") {
-      document.body.style.overflow = "hidden";
-    }
   });
 </script>
 
