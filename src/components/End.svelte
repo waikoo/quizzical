@@ -39,17 +39,13 @@
   };
 </script>
 
-<div class="fixed top-[23px] left-0 right-0">
-  <QuizzicalTitle hasBorder={true} />
-
-  <div class="w-full flex justify-center">
-    {#if $gamePoints > 0}
-      <div use:confetti></div>
-    {/if}
-  </div>
+<div class="flex justify-center">
+  {#if $gamePoints > 0}
+    <div use:confetti></div>
+  {/if}
 </div>
 
-<div class="flex justify-center items-center min-h-[100vh] pt-20">
+<div class="flex justify-center items-center min-h-[100vh] pt-5">
   <article
     class="text-center p-[1px] rounded-[25px] mx-auto col-start-2 col-end-3 w-[301px] md:w-[494px] bg-gradient-to-b from-[#373636] to-[black] shadow-[0_0_2px_1px_black] xl:w-[452px]"
   >

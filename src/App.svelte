@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { url, gameState, baseUrl, gameSpeed, gamePoints } from "./stores";
   import End from "./components/End.svelte";
   import Game from "./components/Game.svelte";
   import Settings from "./components/Settings.svelte";
-  import { url, gameState, baseUrl, gameSpeed, gamePoints } from "./stores";
-  import type { TriviaQuestionWithUuid } from "./type";
   import Greeting from "./components/Greeting.svelte";
+  import Loader from "./components/Loader.svelte";
+  import Header from "./components/Header.svelte";
   import addUuids from "./utils/addUuids";
   import fetchQuestions from "./utils/fetchQuestions";
   import numberQuestions from "./utils/numberQuestions";
+  import type { TriviaQuestionWithUuid } from "./type";
   import "./app.css";
-  import Loader from "./components/Loader.svelte";
 
   let gameQuestions = $state<TriviaQuestionWithUuid[]>([]);
   let noQuestionsMatchSettings = $state<boolean>(false);
@@ -52,6 +53,7 @@
   });
 </script>
 
+<Header />
 <main>
   {#if $gameState === "greeting"}
     <Greeting />

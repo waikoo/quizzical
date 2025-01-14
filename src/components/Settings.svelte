@@ -6,10 +6,8 @@
   import { gameState } from "../stores";
   import TimerSettings from "./TimerSettings.svelte";
   import ButtonPlay from "./ButtonPlay.svelte";
-  import QuizzicalTitle from "./QuizzicalTitle.svelte";
   import type { TCategory, TSettings, TSettingsArr } from "../type";
   import { categories } from "../categories";
-  import ButtonBack from "./ButtonBack.svelte";
 
   let {
     url,
@@ -85,13 +83,6 @@
     </div>
   </section>
 {/if}
-
-<div class="grid grid-cols-[1fr_2fr_1fr] items-center md:mt-[10px]">
-  <a href="/" class="mt-1 pt-1">
-    <ButtonBack />
-  </a>
-  <QuizzicalTitle hasBorder={true} />
-</div>
 
 <section
   class="flex flex-col gap-8 xl:gap-[3.125rem] pb-[6rem] md:pb-[12rem] pt-[85px]"

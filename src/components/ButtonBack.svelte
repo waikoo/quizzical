@@ -1,4 +1,8 @@
-<div class="ml-[20px]">
+<script lang="ts">
+  const { hide }: { hide: boolean } = $props();
+</script>
+
+<div class={`${hide ? "hidden" : "block"}`}>
   <svg
     width="71"
     height="75"

@@ -1,0 +1,16 @@
+<script lang="ts">
+  import QuizzicalTitle from "./QuizzicalTitle.svelte";
+  import ButtonBack from "./ButtonBack.svelte";
+  import { gameState } from "../stores";
+</script>
+
+<header class="md:mt-[10px]">
+  <a href="/" class="mt-[-6px] md:mt-[-8px] xl:mt-[-10px] absolute">
+    <ButtonBack hide={$gameState === "greeting"} />
+  </a>
+
+  <QuizzicalTitle
+    hasBorder={true}
+    extraClass={`${$gameState === "greeting" ? "hidden" : "block"}`}
+  />
+</header>

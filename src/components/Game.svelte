@@ -3,7 +3,6 @@
   import type { TriviaQuestionWithUuid } from "../type";
   import SingleQuestion from "./SingleQuestion.svelte";
   import type { GameSpeed, GameState } from "../stores";
-  import QuizzicalTitle from "./QuizzicalTitle.svelte";
 
   const {
     gameQuestions,
@@ -73,9 +72,6 @@
   startCountdown();
 </script>
 
-<div class="mt-1 pt-1 relative z-[1] md:mt-[23px]">
-  <QuizzicalTitle hasBorder={true} />
-</div>
 {#if gameQuestions.length === 0}
   <p class="text-[#e3bf00] text-bold text-center">
     Something went wrong... Please refresh and try again.
