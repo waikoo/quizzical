@@ -4,7 +4,7 @@
   import { gameState } from "../stores";
 </script>
 
-<header class="md:mt-[10px]">
+<header class="md:mt-[10px] relative z-[2]">
   <a href="/" class="mt-[-6px] md:mt-[-8px] xl:mt-[-10px] absolute">
     <ButtonBack hide={$gameState === "greeting" || $gameState === "playing"} />
   </a>
