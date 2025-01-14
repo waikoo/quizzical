@@ -45,7 +45,7 @@
     if (answer.uuid === incorrectAnswerId) {
       return `${baseClasses} bg-[#A12901]`;
     }
-    return `${baseClasses} bg-[#180f05]`;
+    return `${baseClasses} bg-[#180f05] ${!hasAnswered ? "hover:bg-[#19151D] transition-colors" : "cursor-not-allowed"}`;
   };
 
   const getContainerClasses = (answer: { uuid: string; answer: string }) => {
@@ -75,4 +75,3 @@
     </div>
   {/each}
 </div>
-
