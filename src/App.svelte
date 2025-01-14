@@ -50,6 +50,10 @@
     if ($gameState === "settings") {
       document.body.style.backgroundAttachment = "fixed";
     }
+    if ($gameState === "end") {
+      document.body.style.backgroundAttachment = "fixed";
+      document.body.style.height = "auto";
+    }
   });
 </script>
 
