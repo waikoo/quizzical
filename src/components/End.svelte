@@ -6,6 +6,8 @@
   import ButtonTryAgain from "./ButtonTryAgain.svelte";
   import QuizzicalTitle from "./QuizzicalTitle.svelte";
   import FeedbackMessage from "./FeedbackMessage.svelte";
+  // @ts-ignore
+  import { confetti } from "@neoconfetti/svelte";
 
   const {
     questionLength,
@@ -39,6 +41,12 @@
 
 <div class="fixed top-[23px] left-0 right-0">
   <QuizzicalTitle hasBorder={true} />
+
+  <div class="w-full flex justify-center">
+    {#if $gamePoints > 0}
+      <div use:confetti></div>
+    {/if}
+  </div>
 </div>
 
 <div class="flex justify-center items-center min-h-[100vh] pt-20">
