@@ -6,7 +6,7 @@
 
 <header class="md:mt-[10px]">
   <a href="/" class="mt-[-6px] md:mt-[-8px] xl:mt-[-10px] absolute">
-    <ButtonBack hide={$gameState === "greeting"} />
+    <ButtonBack hide={$gameState === "greeting" || $gameState === "playing"} />
   </a>
 
   <QuizzicalTitle
