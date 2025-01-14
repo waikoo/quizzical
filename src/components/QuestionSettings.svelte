@@ -17,7 +17,7 @@
   <div class="grid gap-6 text-[#E6DEB6] md:grid-cols-3">
     {#each category.values as nrOfquestions}
       <button
-        class="p-[3px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase rounded-full settingsButton text-[1.375rem] md:text-[1.438rem] shadow-[-3px_-3px_20px_-3px_#3E2528]"
+        class="p-[3px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase rounded-full settingsButton text-[1rem] md:text-[1.438rem] shadow-[-3px_-3px_20px_-3px_#3E2528]"
         class:selected={$currentAmount === nrOfquestions.toString()}
         data-name="amount"
         data-amount={nrOfquestions}

@@ -16,7 +16,7 @@
   class:xl:min-w-[748px]={category.name === "Difficulty"}
 >
   <div
-    class="flex flex-col gap-2 xl:gap-[20px_30px] bg-[#180F05] py-4 px-8 xl:px-[25px] rounded-[25px] shadow-[0_0_2px_1px_black]"
+    class="flex flex-col gap-2 xl:gap-[20px_30px] bg-[#180F05] py-[25px] px-[26.5px] xl:px-[25px] rounded-[25px] shadow-[0_0_2px_1px_black]"
   >
     <h2
       class="font-['Agdasima'] text-[#E46136] text-center text-[1.375rem] md:text-[1.75rem]"

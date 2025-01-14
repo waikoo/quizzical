@@ -35,16 +35,21 @@
 
 <SettingsCard {category}>
   <div
-    class="text-[#E6DEB6] flex flex-wrap gap-[23px] justify-center text-[1.375rem] md:text-[1.438rem]"
+    class="text-[#E6DEB6] flex flex-wrap gap-[18px] justify-center text-[1rem] md:text-[1.438rem]"
   >
-    {@render categoryButton($currentCategory === null, "Any", "any", "px-10")}
+    {@render categoryButton(
+      $currentCategory === null,
+      "Any",
+      "any",
+      "px-[15px]",
+    )}
 
     {#each category.values as categoryVal}
       {@render categoryButton(
         $currentCategory === categoryVal.id.toString(),
         categoryVal.name,
         categoryVal.id,
-        "px-4",
+        "px-[10px]",
       )}
     {/each}
   </div>
