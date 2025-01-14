@@ -75,6 +75,7 @@
         {showAnswer}
         {setShowAnswer}
         {setHasAnswered}
+        {hasAnswered}
         {gamePoints}
         {incorrectAnswerId}
         {question}

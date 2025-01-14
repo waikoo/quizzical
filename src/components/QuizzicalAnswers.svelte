@@ -7,6 +7,7 @@
   let {
     showAnswer,
     setHasAnswered,
+    hasAnswered,
     setShowAnswer,
     gamePoints,
     incorrectAnswerId,
@@ -14,6 +15,7 @@
   }: {
     showAnswer: boolean;
     setHasAnswered: (value: boolean) => void;
+    hasAnswered: boolean;
     setShowAnswer: (value: boolean) => void;
     gamePoints: Writable<number>;
     incorrectAnswerId: string | null;
@@ -23,11 +25,12 @@
   const handleClick = (answer: { uuid: string; answer: string }) => {
     setHasAnswered(true);
     setShowAnswer(true);
+
     const correctAnswerIsClicked = answer.uuid === question.correct_answer.uuid;
 
     if (correctAnswerIsClicked) {
       $gamePoints++;
-    } else {
+    } else if (!correctAnswerIsClicked) {
       incorrectAnswerId = answer.uuid;
     }
   };
@@ -65,9 +68,11 @@
       <button
         class={getAnswerClasses(answer)}
         onclick={() => handleClick(answer)}
+        disabled={hasAnswered}
       >
         {decodeHtmlEntities(answer.answer)}
       </button>
     </div>
   {/each}
 </div>
+
