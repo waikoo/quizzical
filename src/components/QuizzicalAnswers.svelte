@@ -37,7 +37,7 @@
 
   const getAnswerClasses = (answer: { uuid: string; answer: string }) => {
     const baseClasses =
-      "border-[1px] w-full border-black p-2 xl:p-[1.5rem] rounded-full md:min-h-[88px]";
+      "border-[1px] w-full border-black p-[15px] xl:p-[1.5rem] rounded-full md:min-h-[88px]";
 
     if (showAnswer && answer.uuid === question.correct_answer.uuid) {
       return `${baseClasses} bg-[#386200] border-none`;
