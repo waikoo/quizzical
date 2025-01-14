@@ -11,6 +11,10 @@
   function showSettings() {
     $gameState = "settings";
   }
+
+  function backToHome() {
+    $gameState = "greeting";
+  }
 </script>
 
 <div class="min-h-[100dvh] grid place-items-center relative overflow-hidden">
@@ -20,7 +24,7 @@
         class="text-[#E46136] text-[1.563rem] md:text-[2.188rem] tracking-[8.8px] md:tracking-[19.3px]"
         >WELCOME TO</span
       >
-      <QuizzicalTitle hasBorder={false} />
+      <QuizzicalTitle hasBorder={false} onClick={backToHome} />
     </h1>
 
     <div
