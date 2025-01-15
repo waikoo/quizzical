@@ -8,7 +8,7 @@
   }
 </script>
 
-<header class="md:mt-[10px] relative z-[2]">
+<header class="md:pt-[10px] relative z-[2]">
   <button
     onclick={backToHome}
     class="mt-[-6px] md:mt-[-8px] xl:mt-[-10px] absolute"
