@@ -50,6 +50,12 @@
     if (["greeting", "setting", "end", "playing"].includes($gameState)) {
       document.body.style.backgroundAttachment = "fixed";
     }
+    if (
+      $gameState === "greeting" &&
+      window.matchMedia("(min-width: 1280px)").matches
+    ) {
+      document.documentElement.style.overflowY = "hidden";
+    }
   });
 </script>
 
