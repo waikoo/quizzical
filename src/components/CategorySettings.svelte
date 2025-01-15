@@ -19,14 +19,14 @@
   customPadding: string,
 )}
   <button
-    class={`p-[3px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase shadow-[-3px_-3px_20px_-3px_#3E2528] rounded-full settingsButton `}
+    class={`p-[3px] font-['Anton'] bg-gradient-to-b from-[#2b2b2b] to-[black] uppercase shadow-[-3px_-3px_20px_-3px_#3E2528] rounded-full `}
     data-name="category"
     data-category={dataCategory}
     class:selected={selectedCondition}
     onclick={category.buildUrl}
   >
     <div
-      class={`rounded-full py-[4px] bg-[#180f05] hover:bg-[#19151D] transition-colors flex justify-center items-center ${customPadding}`}
+      class={`rounded-full py-[4px] bg-[#180f05] xl:hover:bg-[#19151D] transition-colors flex justify-center items-center ${customPadding}`}
     >
       {textContent}
     </div>
