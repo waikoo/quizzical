@@ -66,7 +66,9 @@
 {#if $gameState !== "greeting"}
   <Header />
 {/if}
-<main class={`${getOverflowStyle()} fixed inset-0 margin-auto`}>
+<main
+  class={`${getOverflowStyle()} fixed inset-0 margin-auto grid place-items-center`}
+>
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}
