@@ -51,12 +51,16 @@
       document.body.style.backgroundAttachment = "fixed";
     }
   });
+  const overflowAutoUntilDesktop = window.matchMedia("(max-width: 1280px)")
+    .matches
+    ? "overflow-y-scroll"
+    : "overflow-y-hidden";
 </script>
 
 {#if $gameState !== "greeting"}
   <Header />
 {/if}
-<main>
+<main class={`${overflowAutoUntilDesktop} fixed inset-0 margin-auto`}>
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}

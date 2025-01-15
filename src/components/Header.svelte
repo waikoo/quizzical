@@ -9,26 +9,25 @@
   let hasScrolled = $state(false);
 
   $effect(() => {
-    const article = document.querySelector(".myElement")!;
-
-    const handleScroll = () => {
-      hasScrolled = Boolean(article.scrollTop > 0);
+    const handleScroll = (e: Event) => {
+      const target = e.target as Element;
+      hasScrolled = Boolean(target.scrollTop > 0);
     };
 
-    if ($gameState === "playing") {
-      article.addEventListener("scroll", handleScroll);
+    if ($gameState === "playing" || $gameState === "settings") {
+      window.addEventListener("scroll", handleScroll, true);
     }
-    return () => article.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll, true);
   });
 </script>
 
 <header
-  class="md:pt-[10px] relative z-[2]"
+  class="md:pt-[10px] relative z-[2] flex items-center"
   class:backdrop-blur-sm={hasScrolled}
 >
   <button
     onclick={backToHome}
-    class="mt-[-6px] md:mt-[-8px] xl:mt-[-10px] absolute"
+    class="mt-[35px] md:mt-[30px] xl:mt-[30px] absolute"
   >
     <ButtonBack hide={$gameState === "greeting" || $gameState === "playing"} />
   </button>
