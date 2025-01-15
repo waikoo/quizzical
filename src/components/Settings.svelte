@@ -85,7 +85,7 @@
 {/if}
 
 <section
-  class="flex flex-col gap-[25px] md:gap-[50px] xl:gap-[3.125rem] pb-[7.5rem] md:pb-[12rem] pt-[100px] xl:pt-[148px]"
+  class="flex flex-col gap-[25px] md:gap-[50px] xl:gap-[3.125rem] pb-[7.5rem] md:pb-[12rem] pt-[100px] md:pt-[180px] xl:pt-[148px]"
 >
   <TimerSettings category={settingsCategory[0] as TSettings<string>} />
   <QuestionSettings category={settingsCategory[1] as TSettings<number>} />
