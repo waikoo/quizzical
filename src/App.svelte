@@ -51,10 +51,11 @@
       document.body.style.backgroundAttachment = "fixed";
     }
   });
-  const overflowAutoUntilDesktop = window.matchMedia("(max-width: 1280px)")
-    .matches
-    ? "overflow-y-scroll"
-    : "overflow-y-hidden";
+  const overflowAutoUntilDesktop =
+    window.matchMedia("(max-width: 1280px)").matches &&
+    $gameState === "settings"
+      ? "overflow-y-scroll"
+      : "overflow-y-hidden";
 </script>
 
 {#if $gameState !== "greeting"}

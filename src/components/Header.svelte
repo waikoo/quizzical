@@ -27,7 +27,7 @@
 >
   <button
     onclick={backToHome}
-    class="mt-[35px] md:mt-[30px] xl:mt-[30px] absolute"
+    class="mt-[35px] md:mt-[30px] xl:mt-[30px] absolute xl:pl-10"
   >
     <ButtonBack hide={$gameState === "greeting" || $gameState === "playing"} />
   </button>
