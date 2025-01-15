@@ -51,17 +51,22 @@
       document.body.style.backgroundAttachment = "fixed";
     }
   });
-  const overflowAutoUntilDesktop =
-    window.matchMedia("(max-width: 1280px)").matches &&
-    $gameState === "settings"
-      ? "overflow-y-scroll"
-      : "overflow-y-hidden";
+
+  const getOverflowStyle = () => {
+    if (window.matchMedia("(min-width: 1280px)").matches) {
+      if ($gameState === "greeting") return "overflow-y-hidden";
+      if ($gameState === "settings") return "overflow-y-scroll";
+    } else {
+      if ($gameState === "greeting") return "overflow-y-hidden";
+      return "overflow-y-scroll";
+    }
+  };
 </script>
 
 {#if $gameState !== "greeting"}
   <Header />
 {/if}
-<main class={`${overflowAutoUntilDesktop} fixed inset-0 margin-auto`}>
+<main class={`${getOverflowStyle()} fixed inset-0 margin-auto`}>
   {#if $gameState === "greeting"}
     <Greeting />
   {:else if $gameState === "settings"}
