@@ -8,7 +8,7 @@
 
   const outerStyles = hasBorder
     ? "tracking-[-1px] text-[1.875rem] md:text-[3.063rem] md:tracking-[0.5-px] rounded-full "
-    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-7.3px] md:mt-[-7px] xl:mt-[-25px]";
+    : "tracking-[-3.1px] text-[3.375rem] md:text-[6.75rem] md:tracking-[-7.3px] mt-[-7px] xl:mt-[-25px]";
 
   const innerStyles = hasBorder
     ? "py-0 px-[10px] bg-[#19151d] md:w-full md:shadow-md text-[30px] md:text-[2.438rem] xl:text-[2.5rem] tracking-[-2px] border-[#19151D] border-[2px] w-[198px]"
