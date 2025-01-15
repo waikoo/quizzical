@@ -12,6 +12,9 @@
     const handleScroll = (e: Event) => {
       const target = e.target as Element;
       hasScrolled = Boolean(target.scrollTop > 0);
+      if (target.scrollTop === 0) {
+        hasScrolled = false;
+      }
     };
 
     if ($gameState === "playing" || $gameState === "settings") {
