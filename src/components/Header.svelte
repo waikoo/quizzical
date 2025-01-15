@@ -6,9 +6,26 @@
   function backToHome() {
     $gameState = "greeting";
   }
+  let hasScrolled = $state(false);
+
+  $effect(() => {
+    const article = document.querySelector(".myElement")!;
+
+    const handleScroll = () => {
+      hasScrolled = Boolean(article.scrollTop > 0);
+    };
+
+    if ($gameState === "playing") {
+      article.addEventListener("scroll", handleScroll);
+    }
+    return () => article.removeEventListener("scroll", handleScroll);
+  });
 </script>
 
-<header class="md:pt-[10px] relative z-[2]">
+<header
+  class="md:pt-[10px] relative z-[2]"
+  class:backdrop-blur-sm={hasScrolled}
+>
   <button
     onclick={backToHome}
     class="mt-[-6px] md:mt-[-8px] xl:mt-[-10px] absolute"

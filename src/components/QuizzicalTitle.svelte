@@ -20,7 +20,7 @@
 </script>
 
 <button
-  class={`${outerStyles} ${extraClass} mt-[23px] md:w-fit mx-auto grid place-items-center font-['Monoton'] `}
+  class={`${outerStyles} ${extraClass} pt-[23px] md:w-fit mx-auto grid place-items-center font-['Monoton'] `}
   onclick={onClick}
 >
   <div

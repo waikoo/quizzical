@@ -51,7 +51,7 @@
 </script>
 
 <article
-  class={`${overflowAutoUntilDesktop} fixed inset-0 margin-auto pt-20 pb-10 mx-auto xl:pb-0 grid place-items-center`}
+  class={`${overflowAutoUntilDesktop} fixed inset-0 margin-auto pt-20 pb-10 mx-auto xl:pb-0 grid place-items-center myElement`}
   class:xl:pt-20={windowHeight < 615}
 >
   <div class="w-[18.125rem] md:w-[607px] xl:w-[1059px]">
