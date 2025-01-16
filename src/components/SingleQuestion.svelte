@@ -49,7 +49,7 @@
   class={`pt-20 pb-10 mx-auto xl:pb-0 grid place-items-center myElement fixed inset-0 margin-auto overflow-y-scroll xl:overflow-y-hidden`}
   class:xl:pt-20={windowHeight < 615}
 >
-  <div class="w-[18.125rem] md:w-[607px] xl:w-[1059px]">
+  <div class="md:w-[607px] xl:w-[1059px]">
     <div
       class="flex justify-between items-center xl:grid-cols-3 xl:grid w-[90%] mx-auto"
     >
