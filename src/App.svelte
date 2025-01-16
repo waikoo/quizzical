@@ -25,10 +25,6 @@
       hasFetchedQuestions = true;
       (async () => {
         try {
-          if ($url === baseUrl) {
-            // play with a default of 10 questions & of multiple choice
-            $url = "https://opentdb.com/api.php?amount=10&type=multiple";
-          }
           gameQuestions = numberQuestions(addUuids(await fetchQuestions($url)));
 
           if (gameQuestions.length === 0) {
