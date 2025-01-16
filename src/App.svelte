@@ -57,6 +57,7 @@
       if ($gameState === "greeting") return "overflow-y-hidden";
       if ($gameState === "settings") return "overflow-y-scroll";
     } else {
+      if ($gameState === "end") return "overflow-y-hidden";
       if ($gameState === "greeting") return "overflow-y-hidden";
       return "overflow-y-scroll";
     }
