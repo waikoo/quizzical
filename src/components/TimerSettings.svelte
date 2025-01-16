@@ -18,7 +18,6 @@
       selected?.classList.add("selected");
     });
   });
-  // #19151D
 </script>
 
 <SettingsCard {category}>
