@@ -25,12 +25,6 @@
     $gameState = "fetching";
   };
 
-  const playDefault = () => {
-    $gamePoints = 0;
-    $url = baseUrl;
-    $gameState = "fetching";
-  };
-
   const goToSettings = () => {
     $gamePoints = 0;
     $url = baseUrl;
@@ -49,7 +43,7 @@
     class="text-center p-[1px] rounded-[25px] mx-auto col-start-2 col-end-3 w-[301px] md:w-[494px] bg-gradient-to-b from-[#373636] to-[black] shadow-[0_0_2px_1px_black] xl:w-[452px]"
   >
     <div
-      class="flex flex-col gap-[40px] md:gap-[68px] xl:gap-[3.5rem] bg-[#180F05] py-[40px] px-3 rounded-[25px] shadow-[0_15px_50px_#180f05] xl:w-[452px]"
+      class="flex flex-col gap-[60px] md:gap-[80px] bg-[#180F05] py-[60px] px-3 rounded-[25px] shadow-[0_15px_50px_#180f05] xl:w-[452px]"
     >
       <div class="flex flex-col gap-[20px]">
         <FeedbackMessage gamePoints={$gamePoints} {questionLength} />
@@ -61,10 +55,9 @@
       </div>
 
       <div
-        class="flex flex-col gap-[20px] md:gap-[28px] xl:gap-8 relative z-2 w-full md:w-[318px] xl:w-[281px] mx-auto"
+        class="flex flex-col gap-[20px] relative z-2 w-full md:w-[318px] xl:w-[281px] mx-auto"
       >
         <ButtonTryAgain handler={tryAgain}>Try Again</ButtonTryAgain>
-        <ButtonPlay handler={playDefault}>Play (Default)</ButtonPlay>
         <ButtonSettings handler={goToSettings} />
       </div>
     </div>
