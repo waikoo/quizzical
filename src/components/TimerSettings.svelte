@@ -18,6 +18,7 @@
       selected?.classList.add("selected");
     });
   });
+  // #19151D
 </script>
 
 <SettingsCard {category}>
@@ -30,7 +31,7 @@
         onclick={setGameSpeed}
       >
         <div
-          class="rounded-full bg-[#180f05] xl:hover:bg-[#19151D] transition-colors py-[4px] px-[18px] shadow-[4px_4px_20px_black] flex justify-center items-center"
+          class="rounded-full bg-[#180f05] transition-colors py-[4px] px-[18px] shadow-[4px_4px_20px_black] flex justify-center items-center xl:hover:bg-[#19151D]"
         >
           {speed}
         </div>

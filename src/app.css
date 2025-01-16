@@ -65,6 +65,7 @@ body {
   color: #180f05;
 }
 
-.selected div {
+.selected div,
+.selected div:hover {
   background: #e3bf00;
 }
