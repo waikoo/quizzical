@@ -65,7 +65,7 @@
 </script>
 
 {#if noQuestionsMatchSettings}
-  <SettingsTryAgain {url} {closePopup} />
+  <SettingsTryAgain {closePopup} />
 {/if}
 
 <section
