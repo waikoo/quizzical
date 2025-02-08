@@ -6,6 +6,7 @@
   import { gameState } from "../stores";
   import TimerSettings from "./TimerSettings.svelte";
   import ButtonPlay from "./ButtonPlay.svelte";
+  import SettingsTryAgain from "./SettingsTryAgain.svelte";
   import type { TCategory, TSettings, TSettingsArr } from "../type";
   import { categories } from "../categories";
 
@@ -61,27 +62,10 @@
   const startGame = () => {
     $gameState = "fetching";
   };
-
-  const getParamFor = (name: string) => {
-    new URL($url).searchParams.get(name);
-  };
 </script>
 
 {#if noQuestionsMatchSettings}
-  <section class="fixed inset-0 grid place-items-center bg-black/50 z-[1]">
-    <div class="bg-black text-white text-[3rem]">
-      <button class="text-right block" onclick={closePopup}>X</button>
-      <p>
-        Couldn't get {getParamFor("amount")} questions in category
-        {getParamFor("category")} of difficulty {getParamFor("difficulty")}. Try
-        a different combination.
-      </p>
-      <button
-        class="block bg-white text-black px-10 mx-auto"
-        onclick={closePopup}>OK</button
-      >
-    </div>
-  </section>
+  <SettingsTryAgain {url} {closePopup} />
 {/if}
 
 <section
