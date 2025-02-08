@@ -26,7 +26,7 @@
     onclick={category.buildUrl}
   >
     <div
-      class={`rounded-full py-[4px] bg-[#180f05] xl:hover:bg-[#19151D] transition-colors flex justify-center items-center ${customPadding}`}
+      class={`rounded-full py-[4px] bg-[#180f05] xl:hover:bg-[#19151D] flex justify-center items-center ${customPadding}`}
     >
       {textContent}
     </div>

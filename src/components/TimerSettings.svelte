@@ -30,7 +30,7 @@
         onclick={setGameSpeed}
       >
         <div
-          class="rounded-full bg-[#180f05] transition-colors py-[4px] px-[18px] shadow-[4px_4px_20px_black] flex justify-center items-center xl:hover:bg-[#19151D]"
+          class="rounded-full bg-[#180f05] py-[4px] px-[18px] shadow-[4px_4px_20px_black] flex justify-center items-center xl:hover:bg-[#19151D]"
         >
           {speed}
         </div>
